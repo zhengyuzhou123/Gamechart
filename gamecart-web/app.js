@@ -430,6 +430,7 @@ const FALLBACK_IMAGE =
     </svg>`
   );
 mergeMillionSellerCatalog();
+normalizeAllOffers();
 
 const appRoot = document.querySelector("#app");
 const tabButtons = Array.from(document.querySelectorAll(".tab-btn"));
@@ -775,7 +776,7 @@ function renderOfferCard(offer) {
     <article class="offer-card">
       <div class="offer-top">
         <h3>${platformLabel(offer.platform)}</h3>
-        <span class="badge">-${offerDiscountPercent(offer)}%</span>
+        <span class="badge">-${offerDiscountPercent(offer, state.currency)}%</span>
       </div>
       <div class="price-line">
         <span class="price-current">${escapeHTML(currentText)}</span>
@@ -1159,14 +1160,14 @@ function comparableUSD(offer) {
   return offer.currentPriceUSD;
 }
 
-function offerDiscountPercent(offer) {
-  if (offer.livePrice) {
-    return Math.max(0, Math.round(offer.livePrice.discountPercent || 0));
+function offerDiscountPercent(offer, currency = state.currency) {
+  if (offer.livePrice && offer.livePrice.currency === currency) {
+    return clampPercent(offer.livePrice.discountPercent || 0);
   }
 
   if (offer.originalPriceUSD <= 0) return 0;
   const pct = ((offer.originalPriceUSD - offer.currentPriceUSD) / offer.originalPriceUSD) * 100;
-  return Math.max(0, Math.round(pct));
+  return clampPercent(pct);
 }
 
 function formatCurrentPrice(offer) {
@@ -1187,6 +1188,40 @@ function formatOriginalPrice(offer) {
 
   const converted = offer.originalPriceUSD * USD_TO_CURRENCY[state.currency];
   return formatMoney(converted, state.currency);
+}
+
+function normalizeAllOffers() {
+  for (const game of MOCK_GAMES) {
+    if (!Array.isArray(game.offers)) continue;
+    game.offers = game.offers.map((offer) => normalizeOffer(offer));
+  }
+}
+
+function normalizeOffer(offer) {
+  const normalized = { ...offer };
+  const current = sanitizePrice(normalized.currentPriceUSD, 0.99);
+  const original = Math.max(sanitizePrice(normalized.originalPriceUSD, current), current);
+  normalized.currentPriceUSD = roundUSD(current);
+  normalized.originalPriceUSD = roundUSD(original);
+
+  if (normalized.livePrice) {
+    const liveCurrent = sanitizePrice(normalized.livePrice.current, normalized.currentPriceUSD);
+    const liveOriginal = Math.max(sanitizePrice(normalized.livePrice.original, liveCurrent), liveCurrent);
+    normalized.livePrice = {
+      ...normalized.livePrice,
+      current: roundUSD(liveCurrent),
+      original: roundUSD(liveOriginal),
+      discountPercent: clampPercent(normalized.livePrice.discountPercent || 0)
+    };
+  }
+
+  return normalized;
+}
+
+function sanitizePrice(value, fallback) {
+  const n = Number(value);
+  if (Number.isFinite(n) && n >= 0) return n;
+  return Number.isFinite(fallback) ? Number(fallback) : 0;
 }
 
 function mergeMillionSellerCatalog() {
@@ -1381,6 +1416,10 @@ function escapeSVGText(value) {
 
 function roundUSD(value) {
   return Math.round(Number(value) * 100) / 100;
+}
+
+function clampPercent(value) {
+  return Math.max(0, Math.min(100, Math.round(Number(value) || 0)));
 }
 
 function clampNumber(value, min, max) {
