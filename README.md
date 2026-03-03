@@ -1,40 +1,31 @@
-# Snake (Classic)
+# Gamechart
 
-Minimal classic Snake implementation with:
-- grid-based movement
-- snake growth on food
-- score tracking
-- wall/body game-over
-- restart and pause/resume
+Steam + PlayStation game shelf demo with player-focused decision info.
 
-## Run
+## What is in this repo
 
-Option A (recommended for consistent behavior), from repo root:
+- `gamecart-web/`: pure web demo (Steam-style UI, price comparison, ratings, player insights)
+- `GameCartDemo/`: SwiftUI Multiplatform demo source (iOS + macOS)
+- `index.html`: root entry that loads `gamecart-web`
+- `src/` and root `styles.css`: legacy snake demo files
+
+## Quick start (web)
 
 ```bash
-python3 -m http.server 8000
+cd /Users/ksgg/Documents/Playground
+python3 -m http.server 8080
 ```
 
-Then open:
+Open [http://localhost:8080](http://localhost:8080)
 
-- `http://localhost:8000/`
+## Web routes
 
-Option B: open `/Users/ksgg/Documents/Playground/index.html` directly in browser.
+- Home: `#home`
+- Wishlist: `#wishlist`
+- Settings: `#settings`
+- Game detail: `#game/eldenring`
 
-## Controls
+## Notes
 
-- Keyboard: Arrow keys or `W/A/S/D`
-- Pause/Resume: `Space` or the Pause button
-- Restart: Restart button
-- Mobile: on-screen directional buttons
-
-## Manual Verification Checklist
-
-- Movement: snake advances one cell per tick in current direction.
-- Direction rules: cannot reverse directly into itself (e.g., right -> left in one move).
-- Growth: eating food increases snake length by 1 and score by 1.
-- Food spawn: new food never appears on the snake body.
-- Boundaries: hitting a wall ends the game.
-- Self-collision: hitting the snake body ends the game.
-- Pause/Resume: game state freezes and resumes correctly.
-- Restart: restores initial snake, score, and non-game-over state.
+- Steam live price mode uses: `https://store.steampowered.com/api/appdetails?appids=APPID&cc=REGION&filters=price_overview`
+- If live request fails, UI falls back to mock data.
