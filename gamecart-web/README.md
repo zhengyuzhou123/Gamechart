@@ -1,43 +1,59 @@
-# GameCart Web Demo
+# GameCart Platform UI
 
-Pure web version of the Steam + PlayStation game aggregation demo.
+Premium game-platform style UI with both:
+- a standalone static launcher (`SP.html` / `index.html`) for double-click usage,
+- and the React + TypeScript + Tailwind + Framer Motion source workspace.
 
-## Features
+## Stack
 
-- Steam-style dark UI with compact, information-dense layout
-- Game artwork for every title (cover in list + hero banner in detail)
-- Expanded catalog: 2015+ million-seller blockbusters (1M+ public sales milestones)
-- Home: grouped list (`Today's Deals` / `Popular`) + search + rating summary + deal quality tags
-- GameDetail: recommendation banner + wishlist heart + Steam/PS Offer shelf
-- GameDetail: ratings panel + player snapshot + price intelligence + platform feature comparison
-- GameDetail: community pulse + risk notes (recent issues and content advisory tags)
-- Wishlist: open detail and remove items
-- Settings: Region, Currency, Data Source (`Mock` / `Steam Live`) in `localStorage`
-- Steam live mode: calls Steam appdetails API with in-memory cache and fallback to mock data
-- Responsive offer shelf: mobile vertical, tablet/desktop side-by-side
+- React 18
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- React Router
+- Vite
 
-## Run
+## Pages
 
-Option 1 (quick):
-- Open `index.html` directly in browser.
+- Dashboard
+- Discover
+- Library
+- Wishlist
+- Settings
 
-Option 2 (recommended, avoids local file restrictions):
-1. In terminal:
-   - `cd /Users/ksgg/Documents/Playground/gamecart-web`
-   - `python3 -m http.server 8080`
-2. Open `http://localhost:8080`
+## Key UI Systems
 
-## Route examples
+- Dark theme with one neon accent and layered surfaces
+- `Cmd/Ctrl + K` command palette (pages + game jump)
+- Continue Playing carousel with progress bars
+- Deals Radar cards (drop and low-price context)
+- Game DNA recommendation tags
+- Library multi-filter bar + hover actions
+- Compare drawer with animated transitions
+- Wishlist price tracking cards + mini sparkline
+- Responsive mobile bottom tab bar
+- Design tokens in [`src/design/tokens.ts`](./src/design/tokens.ts)
 
-- Home: `#home`
-- Wishlist: `#wishlist`
-- Settings: `#settings`
-- Game detail: `#game/eldenring`
+## Quick Launch (No Node Required)
 
-## Steam API
+- Double-click `/Users/ksgg/Documents/Playground/gamecart-web/SP.html`
+- or double-click `/Users/ksgg/Documents/Playground/gamecart-web/index.html`
 
-When Data Source is `Steam Live`, Steam offers call:
+Both are standalone static pages and can run directly from local files.
 
-`https://store.steampowered.com/api/appdetails?appids=APPID&cc=REGION&filters=price_overview`
+## Dev Mode (Optional)
 
-If the request fails or price data is missing, the UI falls back to mock pricing.
+```bash
+cd /Users/ksgg/Documents/Playground/gamecart-web
+npm install
+npm run dev
+```
+
+Then open the local Vite URL (usually `http://localhost:5173`).
+
+## Build
+
+```bash
+npm run build
+npm run preview
+```

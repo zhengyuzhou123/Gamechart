@@ -377,6 +377,153 @@ const REAL_COVER_BY_ID = {
   spacemarine2: "https://cdn.cloudflare.steamstatic.com/steam/apps/2183900/header.jpg"
 };
 
+const LIVE_STEAM_PRICE_BY_ID = {
+  "eldenring": { appID: 1245620, current: 59.99, original: 59.99 },
+  "hades": { appID: 1145360, current: 24.99, original: 24.99 },
+  "cyberpunk2077": { appID: 1091500, current: 59.99, original: 59.99 },
+  "witcher3": { appID: 292030, current: 39.99, original: 39.99 },
+  "fallout4": { appID: 377160, current: 19.99, original: 19.99 },
+  "metalgearsolidv": { appID: 287700, current: 19.99, original: 19.99 },
+  "gta5": { appID: 3240220, current: 29.99, original: 29.99 },
+  "darksouls3": { appID: 374320, current: 59.99, original: 59.99 },
+  "doom2016": { appID: 379720, current: 19.99, original: 19.99 },
+  "battlefield1": { appID: 1238840, current: 39.99, original: 39.99 },
+  "overwatch": { appID: 2357570, current: 0.0, original: 0.0 },
+  "nierautomata": { appID: 524220, current: 39.99, original: 39.99 },
+  "residentevil7": { appID: 418370, current: 19.99, original: 19.99 },
+  "divinityoriginalsin2": { appID: 715950, current: 14.99, original: 14.99 },
+  "monsterhunterworld": { appID: 582010, current: 29.99, original: 29.99 },
+  "godofwar2018": { appID: 1593500, current: 49.99, original: 49.99 },
+  "spiderman2018": { appID: 2651280, current: 59.99, original: 59.99 },
+  "rdr2": { appID: 1174180, current: 59.99, original: 59.99 },
+  "assassinscreedodyssey": { appID: 812140, current: 11.99, original: 59.99 },
+  "farcry5": { appID: 552520, current: 8.99, original: 59.99 },
+  "sekiro": { appID: 814380, current: 59.99, original: 59.99 },
+  "residentevil2remake": { appID: 883710, current: 39.99, original: 39.99 },
+  "devilmaycry5": { appID: 601150, current: 29.99, original: 29.99 },
+  "starwarsjedifallenorder": { appID: 1172380, current: 39.99, original: 39.99 },
+  "deathstranding": { appID: 3280350, current: 69.99, original: 69.99 },
+  "control": { appID: 870780, current: 39.99, original: 39.99 },
+  "doometernal": { appID: 782330, current: 39.99, original: 39.99 },
+  "lastofuspart2": { appID: 2531310, current: 49.99, original: 49.99 },
+  "ghostoftsushima": { appID: 2215430, current: 59.99, original: 59.99 },
+  "ff7remake": { appID: 1462040, current: 39.99, original: 39.99 },
+  "assassinscreedvalhalla": { appID: 2208920, current: 14.99, original: 59.99 },
+  "residentevilvillage": { appID: 1196590, current: 39.99, original: 39.99 },
+  "ittakestwo": { appID: 1426210, current: 39.99, original: 39.99 },
+  "forzahorizon5": { appID: 1551360, current: 59.99, original: 59.99 },
+  "godofwarragnarok": { appID: 2322010, current: 59.99, original: 59.99 },
+  "horizonforbiddenwest": { appID: 2420110, current: 59.99, original: 59.99 },
+  "stray": { appID: 1332010, current: 17.99, original: 29.99 },
+  "hogwartslegacy": { appID: 990080, current: 59.99, original: 59.99 },
+  "baldursgate3": { appID: 1086940, current: 59.99, original: 59.99 },
+  "spiderman2": { appID: 2651280, current: 59.99, original: 59.99 },
+  "diablo4": { appID: 2344520, current: 49.99, original: 49.99 },
+  "armoredcore6": { appID: 1888160, current: 59.99, original: 59.99 },
+  "helldivers2": { appID: 553850, current: 39.99, original: 39.99 },
+  "palworld": { appID: 1623730, current: 29.99, original: 29.99 },
+  "blackmythwukong": { appID: 2358720, current: 59.99, original: 59.99 },
+  "spacemarine2": { appID: 2183900, current: 19.79, original: 59.99 }
+};
+
+const LIVE_PS_PRICE_BY_ID = {
+  "eldenring": { current: 59.99, original: 59.99 },
+  "hades": { current: 8.74, original: 24.99 },
+  "cyberpunk2077": { current: 49.99, original: 49.99 },
+  "witcher3": { current: 39.99, original: 39.99 },
+  "fallout4": { current: 7.99, original: 19.99 },
+  "metalgearsolidv": { current: 19.99, original: 19.99 },
+  "gta5": { current: 19.79, original: 59.99 },
+  "darksouls3": { current: 59.99, original: 59.99 },
+  "doom2016": { current: 3.99, original: 19.99 },
+  "battlefield1": { current: 19.99, original: 19.99 },
+  "overwatch": { current: 0.0, original: 0.0 },
+  "nierautomata": { current: 39.99, original: 39.99 },
+  "residentevil7": { current: 19.99, original: 19.99 },
+  "divinityoriginalsin2": { current: 59.99, original: 59.99 },
+  "monsterhunterworld": { current: 19.99, original: 19.99 },
+  "godofwar2018": { current: 19.99, original: 19.99 },
+  "spiderman2018": { current: 69.99, original: 69.99 },
+  "rdr2": { current: 53.99, original: 53.99 },
+  "assassinscreedodyssey": { current: 59.99, original: 59.99 },
+  "farcry5": { current: 59.99, original: 59.99 },
+  "sekiro": { current: 59.99, original: 59.99 },
+  "residentevil2remake": { current: 39.99, original: 39.99 },
+  "devilmaycry5": { current: 29.99, original: 29.99 },
+  "starwarsjedifallenorder": { current: 39.99, original: 39.99 },
+  "deathstranding": { current: 39.99, original: 39.99 },
+  "control": { current: 4.99, original: 4.99 },
+  "doometernal": { current: 7.99, original: 39.99 },
+  "lastofuspart2": { current: 39.99, original: 39.99 },
+  "ghostoftsushima": { current: 9.99, original: 19.99 },
+  "ff7remake": { current: 29.99, original: 29.99 },
+  "assassinscreedvalhalla": { current: 59.99, original: 59.99 },
+  "residentevilvillage": { current: 39.99, original: 39.99 },
+  "ittakestwo": { current: 39.99, original: 39.99 },
+  "forzahorizon5": { current: 47.99, original: 79.99 },
+  "godofwarragnarok": { current: 69.99, original: 69.99 },
+  "horizonforbiddenwest": { current: 29.99, original: 49.99 },
+  "stray": { current: 29.99, original: 29.99 },
+  "hogwartslegacy": { current: 59.99, original: 59.99 },
+  "baldursgate3": { current: 69.99, original: 69.99 },
+  "spiderman2": { current: 69.99, original: 69.99 },
+  "diablo4": { current: 49.99, original: 49.99 },
+  "armoredcore6": { current: 59.99, original: 59.99 },
+  "helldivers2": { current: 39.99, original: 39.99 },
+  "palworld": { current: 29.99, original: 29.99 },
+  "blackmythwukong": { current: 59.99, original: 59.99 },
+  "spacemarine2": { current: 69.99, original: 69.99 }
+};
+
+const PS_PRODUCT_LINK_BY_ID = {
+  "eldenring": "https://store.playstation.com/en-us/product/UP0700-PPSA04610_00-ELDENRING0000000",
+  "hades": "https://store.playstation.com/en-us/product/UP2125-PPSA03355_00-3466019145463410",
+  "cyberpunk2077": "https://store.playstation.com/en-us/product/UP4497-PPSA03974_00-0000000000000CP1",
+  "witcher3": "https://store.playstation.com/en-us/product/UP4497-PPSA10407_00-00000000000000N2",
+  "fallout4": "https://store.playstation.com/en-us/product/UP1003-PPSA09016_00-FALLOUT4FULLGAME",
+  "metalgearsolidv": "https://store.playstation.com/en-us/product/UP0101-CUSA01140_00-MAINGAME00000000",
+  "gta5": "https://store.playstation.com/en-us/product/UP1004-PPSA03420_00-GTAVCROSSGENBUND",
+  "darksouls3": "https://store.playstation.com/en-us/product/UP0700-CUSA03388_00-DARKSOULS3000000",
+  "doom2016": "https://store.playstation.com/en-us/product/UP1003-CUSA02085_00-DOOMNORTHAMERICA",
+  "battlefield1": "https://store.playstation.com/en-us/product/UP0006-CUSA02429_00-BATTLEFIELD01000",
+  "overwatch": "https://store.playstation.com/en-us/product/UP0002-PPSA07805_00-OWORIGINS0000000",
+  "nierautomata": "https://store.playstation.com/en-us/product/UP0082-CUSA04551_00-GOTYORHADIGITAL0",
+  "residentevil7": "https://store.playstation.com/en-us/product/UP0102-PPSA04400_00-BH70000000000001",
+  "divinityoriginalsin2": "https://store.playstation.com/en-us/product/UP3526-PPSA06865_00-ORIGINALSIN2XPS5",
+  "monsterhunterworld": "https://store.playstation.com/en-us/product/UP0102-CUSA07713_00-0000000000000000",
+  "godofwar2018": "https://store.playstation.com/en-us/product/UP9000-CUSA07408_00-00000000GODOFWAR",
+  "spiderman2018": "https://store.playstation.com/en-us/product/UP9000-PPSA03016_00-MARVELSPIDERMAN2",
+  "rdr2": "https://store.playstation.com/en-us/product/UP1004-CUSA03041_00-REDEMPTIONFULL02",
+  "assassinscreedodyssey": "https://store.playstation.com/en-us/product/UP0001-CUSA09311_00-GAME000000000000",
+  "farcry5": "https://store.playstation.com/en-us/product/UP0001-CUSA05904_00-FARCRY5GAME00000",
+  "sekiro": "https://store.playstation.com/en-us/product/UP0002-CUSA12047_00-SEKIROGAME000001",
+  "residentevil2remake": "https://store.playstation.com/en-us/product/UP0102-PPSA04288_00-BH2R000000000001",
+  "devilmaycry5": "https://store.playstation.com/en-us/product/UP0102-CUSA08216_00-DMC5PVERBUNDLE01",
+  "starwarsjedifallenorder": "https://store.playstation.com/en-us/product/UP0006-PPSA02198_00-RESPAWNSWBIRDDOG",
+  "deathstranding": "https://store.playstation.com/en-us/product/UP9000-CUSA11260_00-DEATHSTRAND00001",
+  "control": "https://store.playstation.com/en-us/product/UP2833-CUSA46629_00-0615001522925746",
+  "doometernal": "https://store.playstation.com/en-us/product/UP1003-PPSA01981_00-DOOMETERNALBUNDL",
+  "lastofuspart2": "https://store.playstation.com/en-us/product/UP9000-CUSA07820_00-THELASTOFUSPART2",
+  "ghostoftsushima": "https://store.playstation.com/en-us/product/UP9000-PPSA02225_00-GHOSTSHIP0000000",
+  "ff7remake": "https://store.playstation.com/en-us/product/UP0082-CUSA07211_00-FFVIIREMAKE00000",
+  "assassinscreedvalhalla": "https://store.playstation.com/en-us/product/UP0001-PPSA01491_00-GAME000000000000",
+  "residentevilvillage": "https://store.playstation.com/en-us/product/UP0102-PPSA01556_00-VILLAGEFULLGAMEX",
+  "ittakestwo": "https://store.playstation.com/en-us/product/UP0006-PPSA02342_00-ITTAKESTWORETAIL",
+  "forzahorizon5": "https://store.playstation.com/en-us/product/UP6312-PPSA22327_00-0547256477986893",
+  "godofwarragnarok": "https://store.playstation.com/en-us/product/UP9000-PPSA08329_00-GOWRAGNAROK00000",
+  "horizonforbiddenwest": "https://store.playstation.com/en-us/product/UP9000-PPSA04072_00-FORBIDDENWESTPS5",
+  "stray": "https://store.playstation.com/en-us/product/UP2470-PPSA02100_00-STRAYSIEA0000000",
+  "hogwartslegacy": "https://store.playstation.com/en-us/product/UP1018-CUSA12824_00-HOGWARTSLEGACY01",
+  "baldursgate3": "https://store.playstation.com/en-us/product/UP3526-PPSA14001_00-0507384846053057",
+  "spiderman2": "https://store.playstation.com/en-us/product/UP9000-PPSA03016_00-MARVELSPIDERMAN2",
+  "diablo4": "https://store.playstation.com/en-us/product/UP0002-PPSA02442_00-DIVBASEGAME00000",
+  "armoredcore6": "https://store.playstation.com/en-us/product/UP0700-PPSA06774_00-ARMOREDCORE60000",
+  "helldivers2": "https://store.playstation.com/en-us/product/UP9000-PPSA01413_00-HELLDIVERS200000",
+  "palworld": "https://store.playstation.com/en-us/product/UP6360-PPSA23126_00-0112788005082769",
+  "blackmythwukong": "https://store.playstation.com/en-us/product/HP6545-PPSA23226_00-GAME000000000000",
+  "spacemarine2": "https://store.playstation.com/en-us/product/UP4133-PPSA04452_00-SPACEMARINESII00"
+};
+
 const storage = {
   wishlist: "gamecart.wishlist",
   region: "gamecart.region",
@@ -430,6 +577,7 @@ const FALLBACK_IMAGE =
     </svg>`
   );
 mergeMillionSellerCatalog();
+applyCatalogPriceCorrections();
 normalizeAllOffers();
 
 const appRoot = document.querySelector("#app");
@@ -742,7 +890,7 @@ function renderGameDetail(gameID) {
       <div class="recommend">系统建议：${escapeHTML(recommendation)}</div>
 
       <div class="offer-shelf">
-        ${offers.map((offer) => renderOfferCard(offer)).join("")}
+        ${offers.map((offer) => renderOfferCard(game, offer)).join("")}
       </div>
 
       <div class="detail-panels">
@@ -768,9 +916,11 @@ function renderGameDetail(gameID) {
   });
 }
 
-function renderOfferCard(offer) {
+function renderOfferCard(game, offer) {
   const currentText = formatCurrentPrice(offer);
   const originalText = formatOriginalPrice(offer);
+  const buyURL = escapeHTML(offer.buyURL || "#");
+  const priceCurveHTML = renderOfferPriceCurve(game, offer);
 
   return `
     <article class="offer-card">
@@ -783,18 +933,95 @@ function renderOfferCard(offer) {
         <span class="price-original">${escapeHTML(originalText)}</span>
       </div>
       <p class="hint">Version: ${escapeHTML(offer.version)}</p>
+      ${priceCurveHTML}
       ${offer.platform === "playStation" && offer.psPlusIncluded ? `<span class="ps-plus">PS Plus 可玩</span>` : ""}
-      <a class="buy-btn" href="${offer.buyURL}" target="_blank" rel="noopener noreferrer">Buy</a>
+      <a class="buy-btn" href="${buyURL}" target="_blank" rel="noopener noreferrer">Buy</a>
     </article>
   `;
 }
 
+function renderOfferPriceCurve(game, offer) {
+  const series = buildOfferPriceSeries(game, offer);
+  if (series.length < 2) {
+    return "";
+  }
+
+  const width = 220;
+  const height = 64;
+  const padding = 6;
+  const prices = series.map((point) => point.priceUSD);
+  const maxPrice = Math.max(...prices);
+  const minPrice = Math.min(...prices);
+  const range = Math.max(0.01, maxPrice - minPrice);
+
+  const coords = series.map((point, index) => {
+    const x = padding + (index / (series.length - 1)) * (width - padding * 2);
+    const y = padding + ((maxPrice - point.priceUSD) / range) * (height - padding * 2);
+    return { x, y };
+  });
+
+  const polyline = coords.map((point) => `${point.x.toFixed(1)},${point.y.toFixed(1)}`).join(" ");
+  const first = coords[0];
+  const last = coords[coords.length - 1];
+  const currencyRate = USD_TO_CURRENCY[state.currency];
+  const atl = Math.min(...prices);
+  const now = prices[prices.length - 1];
+  const msrp = prices[0];
+
+  return `
+    <div class="curve-box">
+      <div class="curve-head">
+        <span>价格曲线</span>
+        <span>ATL ${escapeHTML(formatMoney(atl * currencyRate, state.currency))}</span>
+      </div>
+      <svg class="price-curve" viewBox="0 0 ${width} ${height}" preserveAspectRatio="none" aria-hidden="true">
+        <polyline class="price-curve-line" points="${polyline}"></polyline>
+        <circle class="price-curve-dot" cx="${first.x.toFixed(1)}" cy="${first.y.toFixed(1)}" r="2.3"></circle>
+        <circle class="price-curve-dot current" cx="${last.x.toFixed(1)}" cy="${last.y.toFixed(1)}" r="2.7"></circle>
+      </svg>
+      <div class="curve-foot">
+        <span>MSRP ${escapeHTML(formatMoney(msrp * currencyRate, state.currency))}</span>
+        <span>Now ${escapeHTML(formatMoney(now * currencyRate, state.currency))}</span>
+      </div>
+    </div>
+  `;
+}
+
+function buildOfferPriceSeries(game, offer) {
+  const platform = offer.platform === "steam" ? "steam" : "playStation";
+  const current = sanitizePrice(offer.currentPriceUSD, 0);
+  const original = Math.max(sanitizePrice(offer.originalPriceUSD, current), current);
+  const lowRaw = Number(game.playerGuide?.priceIntel?.historicalLowUSD?.[platform]);
+  const low =
+    Number.isFinite(lowRaw) && lowRaw >= 0
+      ? Math.min(lowRaw, current)
+      : current > 0
+        ? Math.min(current, original * 0.75)
+        : 0;
+
+  const seed = hashSeed(`${game.id}-${platform}`);
+  const midDropFactor = 0.86 + (seed % 9) * 0.01;
+  const reboundFactor = 1.06 + ((seed >> 3) % 11) * 0.01;
+
+  return [
+    original,
+    roundUSD(Math.max(low, original * 0.95)),
+    roundUSD(Math.max(low, original * midDropFactor)),
+    roundUSD(low),
+    roundUSD(Math.max(low, Math.min(original, low * reboundFactor))),
+    roundUSD(Math.max(low, (current + original) / 2)),
+    roundUSD(current)
+  ].map((priceUSD) => ({ priceUSD: roundUSD(Math.max(0, priceUSD)) }));
+}
+
 function renderRatingsPanel(game) {
   const ratings = game.ratings || {};
+  const steamOffer = game.offers.find((offer) => offer.platform === "steam");
+  const psOffer = game.offers.find((offer) => offer.platform === "playStation");
   const entries = [
-    { key: "steam", label: "Steam", value: ratings.steam },
-    { key: "playStation", label: "PlayStation", value: ratings.playStation },
-    { key: "metacritic", label: "Metacritic", value: ratings.metacritic }
+    { key: "steam", label: "Steam", value: ratings.steam, link: steamOffer?.buyURL || null },
+    { key: "playStation", label: "PlayStation", value: ratings.playStation, link: psOffer?.buyURL || null },
+    { key: "metacritic", label: "Metacritic", value: ratings.metacritic, link: getMetacriticURL(game) }
   ];
 
   return `
@@ -816,6 +1043,11 @@ function renderRatingsPanel(game) {
                 <span class="rating-key">玩家测评</span>
                 <strong class="rating-value">${formatScoreLabel(entry.value?.player)}</strong>
               </div>
+              ${
+                entry.link
+                  ? `<a class="rating-link" href="${escapeHTML(entry.link)}" target="_blank" rel="noopener noreferrer">查看来源</a>`
+                  : ""
+              }
             </article>
           `
           )
@@ -1188,6 +1420,90 @@ function formatOriginalPrice(offer) {
 
   const converted = offer.originalPriceUSD * USD_TO_CURRENCY[state.currency];
   return formatMoney(converted, state.currency);
+}
+
+function applyCatalogPriceCorrections() {
+  for (const game of MOCK_GAMES) {
+    if (!Array.isArray(game.offers)) {
+      continue;
+    }
+
+    const steamLive = LIVE_STEAM_PRICE_BY_ID[game.id];
+    const psLive = LIVE_PS_PRICE_BY_ID[game.id];
+    const psLink = PS_PRODUCT_LINK_BY_ID[game.id];
+
+    game.offers = game.offers.map((offer) => {
+      const next = { ...offer };
+
+      if (next.platform === "steam" && steamLive) {
+        next.steamAppID = steamLive.appID;
+        next.currentPriceUSD = roundUSD(steamLive.current);
+        next.originalPriceUSD = roundUSD(Math.max(steamLive.original, steamLive.current));
+        next.buyURL = `https://store.steampowered.com/app/${steamLive.appID}`;
+      }
+
+      if (next.platform === "playStation") {
+        if (psLive) {
+          next.currentPriceUSD = roundUSD(psLive.current);
+          next.originalPriceUSD = roundUSD(Math.max(psLive.original, psLive.current));
+          if (next.currentPriceUSD > 0) {
+            next.psPlusIncluded = false;
+          }
+        }
+        if (psLink) {
+          next.buyURL = psLink;
+        }
+      }
+
+      return next;
+    });
+
+    syncPriceIntelWithOffers(game);
+  }
+}
+
+function syncPriceIntelWithOffers(game) {
+  if (!game.playerGuide) {
+    game.playerGuide = {};
+  }
+
+  if (!game.playerGuide.priceIntel) {
+    game.playerGuide.priceIntel = {};
+  }
+
+  const intel = game.playerGuide.priceIntel;
+  intel.historicalLowUSD = intel.historicalLowUSD || {};
+  intel.historicalLowDate = intel.historicalLowDate || {};
+  intel.saleEnds = intel.saleEnds || {};
+
+  const releaseDate = game.playerGuide.releaseDate || "2015-01-01";
+  const saleOffsets = { steam: 10, playStation: 12 };
+
+  ["steam", "playStation"].forEach((platform) => {
+    const offer = game.offers.find((item) => item.platform === platform);
+    if (!offer) {
+      return;
+    }
+
+    const current = sanitizePrice(offer.currentPriceUSD, 0);
+    const existingLowRaw = Number(intel.historicalLowUSD[platform]);
+    const fallbackLow = current <= 0 ? 0 : roundUSD(current * 0.75);
+    const syncedLow =
+      Number.isFinite(existingLowRaw) && existingLowRaw >= 0
+        ? Math.min(roundUSD(existingLowRaw), current)
+        : fallbackLow;
+
+    intel.historicalLowUSD[platform] = roundUSD(Math.max(0, syncedLow));
+
+    if (!intel.historicalLowDate[platform]) {
+      intel.historicalLowDate[platform] = releaseDate;
+    }
+
+    if (!intel.saleEnds[platform]) {
+      const days = saleOffsets[platform] || 10;
+      intel.saleEnds[platform] = formatISODate(new Date(Date.now() + days * 24 * 60 * 60 * 1000));
+    }
+  });
 }
 
 function normalizeAllOffers() {
@@ -1584,6 +1900,15 @@ function formatScoreValue(metric) {
 
   const decimals = metric.scale && metric.scale <= 10 ? 1 : 0;
   return Number(metric.score).toFixed(decimals);
+}
+
+function getMetacriticURL(game) {
+  if (typeof game?.metacriticURL === "string" && game.metacriticURL.trim()) {
+    return game.metacriticURL.trim();
+  }
+
+  const query = encodeURIComponent(game?.name || "");
+  return `https://www.metacritic.com/search/${query}/?category=13`;
 }
 
 async function ensureSteamLivePrices(game) {

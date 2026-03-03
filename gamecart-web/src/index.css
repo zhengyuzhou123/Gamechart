@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
+@import "./design/tokens.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-line/60;
+  }
+
+  body {
+    @apply min-h-screen bg-bg text-ink antialiased;
+    background-image:
+      radial-gradient(circle at 12% 6%, rgba(55, 233, 255, 0.13), transparent 35%),
+      radial-gradient(circle at 88% 12%, rgba(55, 233, 255, 0.08), transparent 30%),
+      linear-gradient(180deg, #070d17 0%, #050911 72%, #04070d 100%);
+  }
+
+  #root {
+    @apply min-h-screen;
+  }
+}
+
+@layer components {
+  .surface-card {
+    @apply rounded-panel border border-line/80 bg-panel/90 shadow-soft backdrop-blur;
+  }
+
+  .surface-card-hi {
+    @apply rounded-panel border border-line/90 bg-panel-hi/90 shadow-lift backdrop-blur;
+  }
+
+  .neon-outline {
+    box-shadow: var(--gc-shadow-neon);
+  }
+
+  .tab-link {
+    @apply flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-medium text-muted transition hover:text-ink;
+  }
+
+  .tab-link.active {
+    @apply border border-neon/40 bg-neon/10 text-ink;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-chip border border-line/90 bg-bg/60 px-2.5 py-1 text-xs font-medium text-muted;
+  }
+
+  .chip-accent {
+    @apply border-neon/40 bg-neon/10 text-neon;
+  }
+
+  .action-btn {
+    @apply inline-flex items-center justify-center rounded-lg border border-line bg-bg/70 px-3 py-2 text-xs font-semibold text-ink transition hover:border-neon/60 hover:bg-neon/10;
+  }
+
+  .section-enter {
+    @apply motion-safe:animate-[fadein_280ms_ease-out];
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
