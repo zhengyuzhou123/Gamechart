@@ -1110,7 +1110,7 @@
             <p class="kicker" style="margin: 0; color: var(--neon); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700">
               Compare Drawer
             </p>
-            <h3 style="margin: 7px 0 0">Price & Score Delta</h3>
+            <h3 style="margin: 7px 0 0">Review & Fit Delta</h3>
           </div>
           <button type="button" class="chip-btn" data-action="closeCompare">Close</button>
         </div>
@@ -1393,61 +1393,325 @@
         "resident-evil-4": 44
       };
 
-      const REVIEW_MATRIX = {
+      const REVIEW_DOSSIER = {
         "elden-ring": {
-          steam: { media: 95, user: 9.3 },
-          playStation: { media: 96, user: 4.8 },
-          metacritic: { media: 96, user: 8.2, url: "https://www.metacritic.com/game/elden-ring/" }
+          steam: {
+            sentiment: "Overwhelmingly Positive",
+            summary:
+              "Steam players praise exploration freedom, build experimentation, and boss learning loops. Most criticism points at opaque quest chains and occasional camera friction in tight fights."
+          },
+          metacritic: {
+            media: 96,
+            user: 8.2,
+            url: "https://www.metacritic.com/game/elden-ring/",
+            criticSummary:
+              "Critics frame it as a landmark open-world action RPG where discovery and challenge design consistently reward mastery.",
+            userSummary:
+              "User feedback celebrates scale and replayability, while frustration appears around guidance clarity and difficulty spikes."
+          },
+          culture: {
+            codename: "Mythic Grind Pilgrimage",
+            verdict: "A long-form mastery game: pattern learning, route memory, and self-authored progression.",
+            recommendedFor: "Players who enjoy hard bosses, experimentation, and cryptic world storytelling.",
+            cautionFor: "Players wanting strict quest guidance and low failure penalties.",
+            axes: [
+              { axis: "First-Hour Hook", pulse: "Measured -> Explosive" },
+              { axis: "Combat Texture", pulse: "Weighty Precision" },
+              { axis: "Build Freedom", pulse: "Very High" },
+              { axis: "Failure Tax", pulse: "High" },
+              { axis: "Long-Tail Replay", pulse: "Huge" }
+            ]
+          }
         },
         "cyberpunk-2077": {
-          steam: { media: 86, user: 8.0 },
-          playStation: { media: 84, user: 4.2 },
-          metacritic: { media: 86, user: 7.2, url: "https://www.metacritic.com/game/cyberpunk-2077/" }
+          steam: {
+            sentiment: "Very Positive",
+            summary:
+              "Steam consensus highlights narrative quests, world atmosphere, and build depth after major updates. Main pain points remain occasional bugs and uneven side content quality."
+          },
+          metacritic: {
+            media: 86,
+            user: 7.2,
+            url: "https://www.metacritic.com/game/cyberpunk-2077/",
+            criticSummary:
+              "Critics emphasize strong city identity and role-play systems, with technical consistency and pacing as the tradeoff.",
+            userSummary:
+              "Users often split between 'immersive comeback story' and 'still imperfect on stability.'"
+          },
+          culture: {
+            codename: "Neon Buildcraft Drama",
+            verdict: "A narrative sandbox where build identity matters more than raw completion speed.",
+            recommendedFor: "Players chasing dialogue-heavy quests and weapon/netrunner build experiments.",
+            cautionFor: "Players intolerant of occasional jank or who prefer tightly linear pacing.",
+            axes: [
+              { axis: "First-Hour Hook", pulse: "Cinematic Burst" },
+              { axis: "Narrative Pull", pulse: "High" },
+              { axis: "Build Depth", pulse: "High" },
+              { axis: "Mission Consistency", pulse: "Medium-High" },
+              { axis: "Technical Stability", pulse: "Medium" }
+            ]
+          }
         },
         hades: {
-          steam: { media: 93, user: 9.7 },
-          playStation: { media: 91, user: 4.7 },
-          metacritic: { media: 93, user: 8.6, url: "https://www.metacritic.com/game/hades/" }
+          steam: {
+            sentiment: "Overwhelmingly Positive",
+            summary:
+              "Steam players consistently praise combat readability, run variety, and character writing that keeps repetition fresh. Minor complaints focus on RNG runs and late-heat fatigue."
+          },
+          metacritic: {
+            media: 93,
+            user: 8.6,
+            url: "https://www.metacritic.com/game/hades/",
+            criticSummary:
+              "Critics call it a benchmark roguelite for how narrative progression and mechanical loop reinforce each other.",
+            userSummary:
+              "Users value 'easy to start, hard to stop' session flow, with some debate on long-term content ceiling."
+          },
+          culture: {
+            codename: "Run Loop Perfection",
+            verdict: "Short sessions with premium combat feel; ideal for nightly momentum play.",
+            recommendedFor: "Players who like repeat runs, fast combat, and narrative drip-feed.",
+            cautionFor: "Players who dislike RNG variance or repeated room structures.",
+            axes: [
+              { axis: "Session Flexibility", pulse: "Excellent" },
+              { axis: "Combat Clarity", pulse: "Very High" },
+              { axis: "Build Variety", pulse: "High" },
+              { axis: "Narrative Delivery", pulse: "High" },
+              { axis: "Endgame Longevity", pulse: "Medium-High" }
+            ]
+          }
         },
         "baldurs-gate-3": {
-          steam: { media: 96, user: 9.2 },
-          playStation: { media: 96, user: 4.7 },
-          metacritic: { media: 96, user: 9.1, url: "https://www.metacritic.com/game/baldurs-gate-3/" }
+          steam: {
+            sentiment: "Overwhelmingly Positive",
+            summary:
+              "Steam feedback spotlights choice density, co-op chaos stories, and role-play breadth. Criticism usually targets occasional pacing drag and UI complexity for newcomers."
+          },
+          metacritic: {
+            media: 96,
+            user: 9.1,
+            url: "https://www.metacritic.com/game/baldurs-gate-3/",
+            criticSummary:
+              "Critics regard it as a modern CRPG reference point thanks to systemic freedom and cinematic reactivity.",
+            userSummary:
+              "Users praise player agency and replay value, while noting substantial time commitment."
+          },
+          culture: {
+            codename: "Choice Labyrinth Opera",
+            verdict: "A systems-first epic where decisions create your personal campaign canon.",
+            recommendedFor: "Players who enjoy turn-based depth, party strategy, and long campaigns.",
+            cautionFor: "Players wanting lightweight onboarding or short completion windows.",
+            axes: [
+              { axis: "Choice Density", pulse: "Extreme" },
+              { axis: "Tactical Depth", pulse: "Very High" },
+              { axis: "Co-op Story Value", pulse: "High" },
+              { axis: "Onboarding Friction", pulse: "High" },
+              { axis: "Replay Branching", pulse: "Huge" }
+            ]
+          }
         },
         "helldivers-2": {
-          steam: { media: 82, user: 7.8 },
-          playStation: { media: 82, user: 4.2 },
-          metacritic: { media: 82, user: 8.0, url: "https://www.metacritic.com/game/helldivers-2/" }
+          steam: {
+            sentiment: "Mostly Positive",
+            summary:
+              "Steam players love squad moments, emergent chaos, and mission intensity. Common negatives include live-service balance swings and matchmaking/server volatility windows."
+          },
+          metacritic: {
+            media: 82,
+            user: 8.0,
+            url: "https://www.metacritic.com/game/helldivers-2/",
+            criticSummary:
+              "Critics praise cooperative action rhythm and presentation, but highlight sustainability risks typical of live-service cadence.",
+            userSummary:
+              "Users value team synergy and social stories while requesting steadier progression and backend reliability."
+          },
+          culture: {
+            codename: "Squad Chaos Engine",
+            verdict: "Best when played as a communication-heavy team ritual, not as solo grind.",
+            recommendedFor: "Players who queue with friends and enjoy high-pressure co-op objectives.",
+            cautionFor: "Players seeking deterministic solo progression or static balance.",
+            axes: [
+              { axis: "Social Pull", pulse: "Very High" },
+              { axis: "Moment-to-Moment Tension", pulse: "High" },
+              { axis: "Solo Friendliness", pulse: "Low-Medium" },
+              { axis: "Meta Stability", pulse: "Medium" },
+              { axis: "Session Story Generation", pulse: "High" }
+            ]
+          }
         },
         "ghost-of-tsushima": {
-          steam: { media: 88, user: 8.6 },
-          playStation: { media: 83, user: 4.8 },
-          metacritic: { media: 83, user: 9.1, url: "https://www.metacritic.com/game/ghost-of-tsushima/" }
+          steam: {
+            sentiment: "Very Positive",
+            summary:
+              "Steam players praise sword combat readability, visual direction, and relaxed open-world pacing. Critiques mention repetitive side structure in long sessions."
+          },
+          metacritic: {
+            media: 83,
+            user: 9.1,
+            url: "https://www.metacritic.com/game/ghost-of-tsushima/",
+            criticSummary:
+              "Critics commend presentation and duel design, with occasional concern about open-world formula familiarity.",
+            userSummary:
+              "Users consistently highlight emotional tone and flow state in traversal/combat loops."
+          },
+          culture: {
+            codename: "Cinematic Steel Flow",
+            verdict: "A mood-heavy action adventure where atmosphere and sword rhythm are the core payoffs.",
+            recommendedFor: "Players who enjoy cinematic combat and scenic exploration cadence.",
+            cautionFor: "Players expecting highly experimental mission structure.",
+            axes: [
+              { axis: "Aesthetic Immersion", pulse: "Very High" },
+              { axis: "Combat Elegance", pulse: "High" },
+              { axis: "Narrative Momentum", pulse: "Medium-High" },
+              { axis: "Open-World Novelty", pulse: "Medium" },
+              { axis: "Comfort Play Value", pulse: "High" }
+            ]
+          }
         },
         "forza-horizon-5": {
-          steam: { media: 91, user: 8.2 },
-          playStation: { media: 90, user: 4.5 },
-          metacritic: { media: 91, user: 8.3, url: "https://www.metacritic.com/game/forza-horizon-5/" }
+          steam: {
+            sentiment: "Very Positive",
+            summary:
+              "Steam feedback celebrates handling accessibility, event density, and constant goals. Main friction is progression grind rhythm and occasional online desync."
+          },
+          metacritic: {
+            media: 91,
+            user: 8.3,
+            url: "https://www.metacritic.com/game/forza-horizon-5/",
+            criticSummary:
+              "Critics frame it as a highly polished open-road racer with broad appeal and outstanding driving feel.",
+            userSummary:
+              "Users praise variety and polish, while long-term players request fresher seasonal loops."
+          },
+          culture: {
+            codename: "Festival Drift Loop",
+            verdict: "A low-friction, high-variety racing sandbox with strong 'just one more event' pull.",
+            recommendedFor: "Players wanting flexible race sessions and broad car collection goals.",
+            cautionFor: "Players who need strictly linear progression structures.",
+            axes: [
+              { axis: "Pick-up-and-Play", pulse: "Excellent" },
+              { axis: "Driving Feel", pulse: "Very High" },
+              { axis: "Mode Variety", pulse: "High" },
+              { axis: "Live Loop Freshness", pulse: "Medium" },
+              { axis: "Collection Motivation", pulse: "High" }
+            ]
+          }
         },
         "spider-man-2": {
-          steam: { media: 90, user: 8.9 },
-          playStation: { media: 90, user: 4.7 },
-          metacritic: { media: 90, user: 9.0, url: "https://www.metacritic.com/game/marvels-spider-man-2/" }
+          steam: {
+            sentiment: "No Steam SKU",
+            summary:
+              "No native Steam player sentiment for this title at the moment; platform conversation is mostly PlayStation-led."
+          },
+          metacritic: {
+            media: 90,
+            user: 9.0,
+            url: "https://www.metacritic.com/game/marvels-spider-man-2/",
+            criticSummary:
+              "Critics praise traversal speed, cinematic staging, and dual-protagonist mission pacing.",
+            userSummary:
+              "Users strongly favor movement feel and spectacle, with mild criticism on side content depth versus expectations."
+          },
+          culture: {
+            codename: "Velocity Superhero Ride",
+            verdict: "A high-polish spectacle campaign where movement fantasy is the headline value.",
+            recommendedFor: "Players prioritizing traversal joy, cinematic action, and hero fantasy.",
+            cautionFor: "Players demanding systemic RPG-style build experimentation.",
+            axes: [
+              { axis: "Traversal Thrill", pulse: "Top Tier" },
+              { axis: "Combat Flash", pulse: "High" },
+              { axis: "Narrative Pace", pulse: "High" },
+              { axis: "System Depth", pulse: "Medium" },
+              { axis: "Replay Incentive", pulse: "Medium-High" }
+            ]
+          }
         },
         "stardew-valley": {
-          steam: { media: 89, user: 9.6 },
-          playStation: { media: 88, user: 4.6 },
-          metacritic: { media: 89, user: 8.8, url: "https://www.metacritic.com/game/stardew-valley/" }
+          steam: {
+            sentiment: "Overwhelmingly Positive",
+            summary:
+              "Steam players praise comfort loop design, mod support, and long-term farming/social goals. Typical concerns are early-game grind and pacing patience requirements."
+          },
+          metacritic: {
+            media: 89,
+            user: 8.8,
+            url: "https://www.metacritic.com/game/stardew-valley/",
+            criticSummary:
+              "Critics highlight elegant progression layering and near-endless self-directed play styles.",
+            userSummary:
+              "Users value relaxation and routine building, with occasional fatigue around repetitive chores."
+          },
+          culture: {
+            codename: "Cozy Systems Forever",
+            verdict: "A lifestyle game loop: low-pressure goals, high ownership of your own pace.",
+            recommendedFor: "Players seeking calm progression and open-ended daily routines.",
+            cautionFor: "Players needing constant cinematic spikes or hard fail-states.",
+            axes: [
+              { axis: "Stress Level", pulse: "Low (Comfort)" },
+              { axis: "Routine Satisfaction", pulse: "Very High" },
+              { axis: "Co-op Warmth", pulse: "High" },
+              { axis: "Learning Curve", pulse: "Gentle" },
+              { axis: "Long-Term Stickiness", pulse: "Huge" }
+            ]
+          }
         },
         control: {
-          steam: { media: 85, user: 8.3 },
-          playStation: { media: 84, user: 4.2 },
-          metacritic: { media: 85, user: 7.9, url: "https://www.metacritic.com/game/control/" }
+          steam: {
+            sentiment: "Very Positive",
+            summary:
+              "Steam sentiment favors combat feel, atmosphere, and visual style. Friction points include map readability and occasional encounter repetition.",
+          },
+          metacritic: {
+            media: 85,
+            user: 7.9,
+            url: "https://www.metacritic.com/game/control/",
+            criticSummary:
+              "Critics value worldbuilding and telekinetic combat identity, while noting uneven mission variety.",
+            userSummary:
+              "Users often praise mood and powers but split on navigation friction and narrative opacity."
+          },
+          culture: {
+            codename: "Paranormal Combat Theater",
+            verdict: "Best as an atmosphere-first action game with stylish power fantasy bursts.",
+            recommendedFor: "Players who enjoy abstract lore and arena-style combat choreography.",
+            cautionFor: "Players who need crystal-clear navigation and direct storytelling.",
+            axes: [
+              { axis: "World Mood", pulse: "Very High" },
+              { axis: "Power Fantasy", pulse: "High" },
+              { axis: "Clarity of Navigation", pulse: "Medium-Low" },
+              { axis: "Narrative Accessibility", pulse: "Medium" },
+              { axis: "Combat Replay Feel", pulse: "High" }
+            ]
+          }
         },
         "resident-evil-4": {
-          steam: { media: 93, user: 9.0 },
-          playStation: { media: 93, user: 4.6 },
-          metacritic: { media: 93, user: 8.6, url: "https://www.metacritic.com/game/resident-evil-4/" }
+          steam: {
+            sentiment: "Overwhelmingly Positive",
+            summary:
+              "Steam players applaud encounter pacing, weapon handling, and remake quality balance. Complaints are mostly around repeat campaign length expectations after first clear."
+          },
+          metacritic: {
+            media: 93,
+            user: 8.6,
+            url: "https://www.metacritic.com/game/resident-evil-4/",
+            criticSummary:
+              "Critics frame it as a model remake with modernized action-horror flow and strong set-piece discipline.",
+            userSummary:
+              "Users praise replay routes and combat tension, with occasional notes on cut content preferences."
+          },
+          culture: {
+            codename: "Tension Rhythm Blueprint",
+            verdict: "A precision action-horror loop built on pressure, repositioning, and resource control.",
+            recommendedFor: "Players who like high-pressure combat and replayable encounter optimization.",
+            cautionFor: "Players who dislike stress-heavy pacing and ammo economy decisions.",
+            axes: [
+              { axis: "Tension Curve", pulse: "Very High" },
+              { axis: "Combat Feedback", pulse: "Very High" },
+              { axis: "Pacing Control", pulse: "High" },
+              { axis: "Replay Route Value", pulse: "High" },
+              { axis: "Narrative Complexity", pulse: "Medium" }
+            ]
+          }
         }
       };
 
@@ -1466,6 +1730,8 @@
           // Ignore storage failures in restricted local-file contexts.
         }
       }
+
+      const BUILD_UPDATED_AT = "2026-03-03 07:15 EST";
 
       const state = {
         route: "dashboard",
@@ -1528,69 +1794,55 @@
         render();
       }
 
-      function formatCurrency(value) {
-        return new Intl.NumberFormat(undefined, {
-          style: "currency",
-          currency: state.currency,
-          minimumFractionDigits: state.currency === "JPY" ? 0 : 2,
-          maximumFractionDigits: state.currency === "JPY" ? 0 : 2
-        }).format(value);
-      }
-
-      function dropPct(current, previous) {
-        if (!(previous > 0) || current >= previous) return 0;
-        return Math.round(((previous - current) / previous) * 100);
-      }
-
-      function sparkPath(values, width = 176, height = 42, pad = 4) {
-        const min = Math.min(...values);
-        const max = Math.max(...values);
-        const span = Math.max(0.01, max - min);
-        return values
-          .map((value, i) => {
-            const x = pad + (i / (values.length - 1)) * (width - pad * 2);
-            const y = pad + ((max - value) / span) * (height - pad * 2);
-            return `${i === 0 ? "M" : "L"}${x.toFixed(1)} ${y.toFixed(1)}`;
-          })
-          .join(" ");
-      }
-
       function getGames(ids) {
         return ids.map((id) => gameMap.get(id)).filter(Boolean);
       }
 
       function gameReview(game) {
         const fallback = {
-          steam: { media: game.criticScore, user: game.playerScore },
-          playStation: { media: game.criticScore, user: 4.5 },
+          steam: {
+            sentiment: "Mixed Signals",
+            summary: "Community discussion is still consolidating; sentiment varies by player priorities."
+          },
           metacritic: {
             media: game.criticScore,
             user: game.playerScore,
-            url: `https://www.metacritic.com/search/${encodeURIComponent(game.title)}/?category=13`
+            url: `https://www.metacritic.com/search/${encodeURIComponent(game.title)}/?category=13`,
+            criticSummary: "Critic verdict is generally positive, with caveats around fit for specific audiences.",
+            userSummary: "User discussion is split mostly by pacing preference and tolerance for friction."
+          },
+          culture: {
+            codename: "Open Evaluation Lane",
+            verdict: "Use links and axis labels to decide if this matches your current mood, not just a number.",
+            recommendedFor: "Players who map features to personal taste before buying.",
+            cautionFor: "Blind purchases based only on one aggregate score.",
+            axes: [
+              { axis: "First-Hour Hook", pulse: "Unknown" },
+              { axis: "System Depth", pulse: "Unknown" },
+              { axis: "Replay Tail", pulse: "Unknown" },
+              { axis: "Social Pull", pulse: "Unknown" },
+              { axis: "Friction Risk", pulse: "Unknown" }
+            ]
           }
         };
-        return REVIEW_MATRIX[game.id] || fallback;
+        return REVIEW_DOSSIER[game.id] || fallback;
       }
 
       function playtimeHours(game) {
         return PLAYTIME_HOURS[game.id] || 40;
       }
 
-      function valueHoursPerDollar(game) {
-        if (!(game.currentPrice > 0)) return "--";
-        return (playtimeHours(game) / game.currentPrice).toFixed(2);
+      function storeLinks(game, review) {
+        const steamAppMatch = String(game.cover || "").match(/\/steam\/apps\/(\d+)\//);
+        const steamUrl = steamAppMatch
+          ? `https://store.steampowered.com/app/${steamAppMatch[1]}/`
+          : `https://store.steampowered.com/search/?term=${encodeURIComponent(game.title)}`;
+        const psUrl = `https://store.playstation.com/en-us/search/${encodeURIComponent(game.title)}`;
+        return { steamUrl, psUrl, mcUrl: review.metacritic.url };
       }
 
       function formatCritic(score) {
         return `${Math.round(score)}/100`;
-      }
-
-      function formatSteamUser(score) {
-        return `${Number(score).toFixed(1)}/10`;
-      }
-
-      function formatPsUser(score) {
-        return `${Number(score).toFixed(1)}/5`;
       }
 
       function formatMcUser(score) {
@@ -1599,22 +1851,44 @@
 
       function reviewSnippet(game) {
         const review = gameReview(game);
-        return `S ${formatCritic(review.steam.media)} / ${formatSteamUser(review.steam.user)} · PS ${formatCritic(review.playStation.media)} / ${formatPsUser(review.playStation.user)} · MC ${formatCritic(review.metacritic.media)} / ${formatMcUser(review.metacritic.user)}`;
+        return `${review.steam.sentiment} · MC ${formatCritic(review.metacritic.media)} / ${formatMcUser(review.metacritic.user)} · ${review.culture.codename}`;
+      }
+
+      function clipText(text, max = 180) {
+        const value = String(text || "").trim();
+        if (value.length <= max) return value;
+        return `${value.slice(0, Math.max(0, max - 3)).trim()}...`;
+      }
+
+      function renderAxisChips(review, limit = 3) {
+        return review.culture.axes
+          .slice(0, limit)
+          .map((axis) => `<span class="chip">${axis.axis}: ${axis.pulse}</span>`)
+          .join("");
+      }
+
+      function platformCoverage(game) {
+        const hasSteam = game.platforms.includes("Steam");
+        const hasPS = game.platforms.includes("PlayStation");
+        if (hasSteam && hasPS) return "Steam + PS";
+        if (hasSteam) return "Steam";
+        if (hasPS) return "PlayStation";
+        return game.primaryPlatform;
       }
 
       function dashboardSnapshot() {
         const totalGames = GAMES.length;
-        const activeDeals = GAMES.filter((game) => dropPct(game.currentPrice, game.previousPrice) > 0).length;
+        const highConsensus = GAMES.filter((game) => gameReview(game).metacritic.media >= 90).length;
+        const strongCommunity = GAMES.filter((game) => {
+          const sentiment = gameReview(game).steam.sentiment.toLowerCase();
+          return sentiment.includes("overwhelmingly") || sentiment.includes("very positive");
+        }).length;
+        const multiplayerReady = GAMES.filter((game) => game.multiplayer).length;
+        const dualPlatform = GAMES.filter((game) => game.platforms.includes("Steam") && game.platforms.includes("PlayStation")).length;
         const metaAvg = Math.round(
           GAMES.reduce((sum, game) => sum + gameReview(game).metacritic.media, 0) / Math.max(1, totalGames)
         );
-        const valueAvg = (
-          GAMES.reduce((sum, game) => {
-            if (!(game.currentPrice > 0)) return sum;
-            return sum + playtimeHours(game) / game.currentPrice;
-          }, 0) / Math.max(1, totalGames)
-        ).toFixed(2);
-        return { totalGames, activeDeals, metaAvg, valueAvg };
+        return { totalGames, highConsensus, strongCommunity, multiplayerReady, dualPlatform, metaAvg };
       }
 
       function navHref(itemId) {
@@ -1648,6 +1922,7 @@
             <h2>${title}</h2>
           </div>
           <div class="top-actions">
+            <span class="counter">Updated ${BUILD_UPDATED_AT}</span>
             <button class="ghost-btn" type="button" data-action="openPalette">Search <kbd style="font-size: 10px; border: 1px solid rgba(38,58,85,.88); border-radius: 7px; padding: 2px 6px; color: var(--text)">Cmd/Ctrl+K</kbd></button>
             <button class="counter" type="button" data-action="openCompare">Tonight ${state.tonightIds.length} • Compare ${state.compareIds.length}</button>
           </div>
@@ -1661,20 +1936,26 @@
 
       function renderContinueCard(game) {
         const review = gameReview(game);
+        const links = storeLinks(game, review);
         return `
           <article class="card">
             <img class="cover" src="${game.cover}" alt="${game.title}" loading="lazy" />
             <div class="overlay"></div>
             <div class="card-content">
               <div class="chips">
-                <span class="chip">${game.primaryPlatform}</span>
+                <span class="chip">${platformCoverage(game)}</span>
                 <span class="chip neon">${game.progress}%</span>
               </div>
               <h4 class="title">${game.title}</h4>
               <p class="subtitle">${game.subtitle}</p>
               <div class="progress-track"><div class="progress-bar" style="width: ${Math.max(0, Math.min(100, game.progress))}%"></div></div>
-              <div class="small-meta"><span>${game.lastPlayed}</span><span>${formatCurrency(game.currentPrice)}</span></div>
-              <div class="small-meta"><span>MC ${Math.round(review.metacritic.media)}</span><span>User ${Number(review.metacritic.user).toFixed(1)}</span></div>
+              <div class="small-meta"><span>${game.lastPlayed}</span><span>${playtimeHours(game)}h est.</span></div>
+              <div class="small-meta"><span>${review.steam.sentiment}</span><span>MC ${Math.round(review.metacritic.media)}</span></div>
+              <div class="action-row">
+                <button type="button" class="action-btn" data-action="details" data-id="${game.id}">Details</button>
+                <a class="link-chip" href="${links.steamUrl}" target="_blank" rel="noopener noreferrer">Steam</a>
+                <a class="link-chip" href="${links.psUrl}" target="_blank" rel="noopener noreferrer">PS</a>
+              </div>
             </div>
           </article>
         `;
@@ -1690,16 +1971,17 @@
           <section class="surface-hi hero">
             <p class="kicker">Game Platform</p>
             <h1>One Library. Two Worlds.</h1>
-            <p>Steam and PlayStation collections in one shelf, with instant price intelligence and game-DNA recommendations.</p>
+            <p>Steam and PlayStation collections in one shelf, centered on review intelligence, community sentiment, and direct store links.</p>
             <button type="button" class="hero-search" data-action="openPalette">
               <span>Search games, pages, commands</span>
               <kbd>Cmd/Ctrl + K</kbd>
             </button>
             <div class="hero-metrics">
               <article class="metric-card"><p class="k">Catalog</p><p class="v">${snap.totalGames} Titles</p></article>
-              <article class="metric-card"><p class="k">Active Deals</p><p class="v">${snap.activeDeals}</p></article>
+              <article class="metric-card"><p class="k">MC 90+</p><p class="v">${snap.highConsensus}</p></article>
+              <article class="metric-card"><p class="k">Strong Community</p><p class="v">${snap.strongCommunity}</p></article>
               <article class="metric-card"><p class="k">Avg MC</p><p class="v">${snap.metaAvg}/100</p></article>
-              <article class="metric-card"><p class="k">Avg Value</p><p class="v">${snap.valueAvg}h/$</p></article>
+              <article class="metric-card"><p class="k">Steam + PS</p><p class="v">${snap.dualPlatform}</p></article>
             </div>
           </section>
 
@@ -1709,29 +1991,28 @@
           </section>
 
           <section>
-            ${sectionHead("Deals Radar", "Price drops and near all-time-low windows.")}
+            ${sectionHead("Consensus Radar", "Cross-check Steam sentiment and Metacritic context in one glance.")}
             <div class="grid cards-4">
               ${dealGames
                 .map((game) => {
                   const review = gameReview(game);
-                  const drop = dropPct(game.currentPrice, game.previousPrice);
-                  const gap = Math.max(0, Math.round(((game.currentPrice - game.lowestPrice) / game.lowestPrice) * 100));
+                  const links = storeLinks(game, review);
                   return `
                     <article class="surface deal">
                       <div class="split">
                         <h4>${game.title}</h4>
-                        <span class="chip ${drop > 0 ? "neon" : ""}">${drop > 0 ? `-${drop}%` : "Stable"}</span>
-                      </div>
-                      <p class="muted tiny" style="margin: 7px 0 0">Current ${formatCurrency(game.currentPrice)}</p>
-                      <div class="stats">
-                        <div class="stat"><p class="label">Lowest</p><p class="val" style="color: var(--neon)">${formatCurrency(game.lowestPrice)}</p></div>
-                        <div class="stat"><p class="label">Gap vs ATL</p><p class="val">+${gap}%</p></div>
+                        <span class="chip neon">${review.culture.codename}</span>
                       </div>
                       <p class="muted tiny" style="margin: 8px 0 0">${reviewSnippet(game)}</p>
+                      <p class="muted tiny" style="margin: 8px 0 0">${clipText(review.steam.summary, 140)}</p>
+                      <p class="muted tiny" style="margin: 6px 0 0">${clipText(review.metacritic.criticSummary, 140)}</p>
+                      <div class="chips" style="margin-top: 9px">${renderAxisChips(review, 2)}</div>
                       <div class="action-row">
                         <button type="button" class="action-btn" data-action="compare" data-id="${game.id}">Compare</button>
                         <button type="button" class="action-btn" data-action="details" data-id="${game.id}">Details</button>
-                        <a class="link-chip" href="${review.metacritic.url}" target="_blank" rel="noopener noreferrer">MC</a>
+                        <a class="link-chip" href="${links.steamUrl}" target="_blank" rel="noopener noreferrer">Steam</a>
+                        <a class="link-chip" href="${links.psUrl}" target="_blank" rel="noopener noreferrer">PS</a>
+                        <a class="link-chip" href="${links.mcUrl}" target="_blank" rel="noopener noreferrer">MC</a>
                       </div>
                     </article>
                   `;
@@ -1744,18 +2025,21 @@
             ${sectionHead("For You", "Recommendations clustered by Game DNA.")}
             <div class="grid cards-4">
               ${recGames
-                .map(
-                  (game) => `
+                .map((game) => {
+                  const review = gameReview(game);
+                  return `
                   <article class="surface-hi foryou">
                     <div class="split"><h4>${game.title}</h4><span class="chip">${game.primaryPlatform}</span></div>
                     <p class="muted tiny" style="margin: 6px 0 0">${game.genre.join(" • ")}</p>
                     <div class="chips" style="margin-top: 8px">${game.dnaTags.map((tag) => `<span class="chip">${tag}</span>`).join("")}</div>
                     <p class="muted tiny" style="margin: 8px 0 0">${reviewSnippet(game)}</p>
-                    <div class="small-meta" style="margin-top: 9px"><span>${playtimeHours(game)}h playtime</span><span>${valueHoursPerDollar(game)}h / $</span></div>
+                    <p class="muted tiny" style="margin: 8px 0 0">${clipText(review.culture.recommendedFor, 110)}</p>
+                    <p class="muted tiny" style="margin: 6px 0 0">${clipText(review.culture.cautionFor, 110)}</p>
+                    <div class="chips" style="margin-top: 9px">${renderAxisChips(review, 2)}</div>
                     <div class="action-row"><button type="button" class="action-btn" data-action="details" data-id="${game.id}">Details</button><button type="button" class="action-btn" data-action="compare" data-id="${game.id}">Compare</button></div>
                   </article>
                 `
-                )
+                })
                 .join("")}
             </div>
           </section>
@@ -1764,45 +2048,47 @@
 
       function renderReviewIntel(game) {
         const review = gameReview(game);
+        const links = storeLinks(game, review);
         return `
           <article class="intel-card">
-            <h4 style="margin: 0">Review Matrix</h4>
-            <div class="rating-line"><span class="k">Steam media / user</span><span class="v">${formatCritic(review.steam.media)} · ${formatSteamUser(review.steam.user)}</span></div>
-            <div class="rating-line"><span class="k">PS media / user</span><span class="v">${formatCritic(review.playStation.media)} · ${formatPsUser(review.playStation.user)}</span></div>
+            <h4 style="margin: 0">Review Consensus</h4>
+            <div class="rating-line"><span class="k">Steam sentiment</span><span class="v">${review.steam.sentiment}</span></div>
             <div class="rating-line"><span class="k">Metacritic media / user</span><span class="v">${formatCritic(review.metacritic.media)} · ${formatMcUser(review.metacritic.user)}</span></div>
+            <p class="muted tiny" style="margin: 10px 0 0">${review.steam.summary}</p>
+            <p class="muted tiny" style="margin: 8px 0 0"><strong>Critics:</strong> ${review.metacritic.criticSummary}</p>
+            <p class="muted tiny" style="margin: 8px 0 0"><strong>Players:</strong> ${review.metacritic.userSummary}</p>
             <div class="links-row">
-              <a class="link-chip" href="${review.metacritic.url}" target="_blank" rel="noopener noreferrer">Metacritic</a>
-              <a class="link-chip" href="https://store.steampowered.com/search/?term=${encodeURIComponent(game.title)}" target="_blank" rel="noopener noreferrer">Steam</a>
-              <a class="link-chip" href="https://store.playstation.com/en-us/search/${encodeURIComponent(game.title)}" target="_blank" rel="noopener noreferrer">PS Store</a>
+              <a class="link-chip" href="${links.steamUrl}" target="_blank" rel="noopener noreferrer">Steam</a>
+              <a class="link-chip" href="${links.psUrl}" target="_blank" rel="noopener noreferrer">PS Store</a>
+              <a class="link-chip" href="${links.mcUrl}" target="_blank" rel="noopener noreferrer">Metacritic</a>
             </div>
           </article>
         `;
       }
 
       function renderPlayerIntel(game) {
-        const drop = dropPct(game.currentPrice, game.previousPrice);
+        const review = gameReview(game);
         return `
           <article class="intel-card">
-            <h4 style="margin: 0">Player Snapshot</h4>
+            <h4 style="margin: 0">Player Fit</h4>
             <div class="rating-line"><span class="k">Genres</span><span class="v">${game.genre.join(" / ")}</span></div>
             <div class="rating-line"><span class="k">Multiplayer</span><span class="v">${game.multiplayer ? "Yes" : "No"}</span></div>
             <div class="rating-line"><span class="k">Progress</span><span class="v">${game.progress}%</span></div>
             <div class="rating-line"><span class="k">Playtime est.</span><span class="v">${playtimeHours(game)}h</span></div>
-            <div class="rating-line"><span class="k">Decision hint</span><span class="v">${drop > 0 ? `Drop ${drop}% now` : "Track for next drop"}</span></div>
+            <p class="muted tiny" style="margin: 10px 0 0"><strong>Recommended For:</strong> ${review.culture.recommendedFor}</p>
+            <p class="muted tiny" style="margin: 8px 0 0"><strong>Caution For:</strong> ${review.culture.cautionFor}</p>
           </article>
         `;
       }
 
-      function renderPriceIntel(game) {
-        const gap = Math.max(0, Math.round(((game.currentPrice - game.lowestPrice) / game.lowestPrice) * 100));
+      function renderCultureIntel(game) {
+        const review = gameReview(game);
         return `
           <article class="intel-card">
-            <h4 style="margin: 0">Price Intelligence</h4>
-            <div class="rating-line"><span class="k">Current</span><span class="v">${formatCurrency(game.currentPrice)}</span></div>
-            <div class="rating-line"><span class="k">Previous</span><span class="v">${formatCurrency(game.previousPrice)}</span></div>
-            <div class="rating-line"><span class="k">Historical low</span><span class="v">${formatCurrency(game.lowestPrice)}</span></div>
-            <div class="rating-line"><span class="k">Gap vs ATL</span><span class="v">+${gap}%</span></div>
-            <div class="rating-line"><span class="k">Value</span><span class="v">${valueHoursPerDollar(game)}h per $</span></div>
+            <h4 style="margin: 0">GameCart Culture Score</h4>
+            <div class="rating-line"><span class="k">Codename</span><span class="v">${review.culture.codename}</span></div>
+            <p class="muted tiny" style="margin: 10px 0 0"><strong>Verdict:</strong> ${review.culture.verdict}</p>
+            <div class="chips" style="margin-top: 10px">${renderAxisChips(review, 5)}</div>
           </article>
         `;
       }
@@ -1810,6 +2096,7 @@
       function renderDiscover() {
         const focus = gameMap.get(state.focusGameId) || GAMES[0];
         const focusReview = gameReview(focus);
+        const focusLinks = storeLinks(focus, focusReview);
         const q = state.discoverQuery.trim().toLowerCase();
         const filtered = q
           ? GAMES.filter((game) => `${game.title} ${game.genre.join(" ")} ${game.subtitle}`.toLowerCase().includes(q))
@@ -1824,21 +2111,25 @@
               <p class="muted" style="margin: 0">${focus.subtitle}</p>
               <div class="chips">${focus.dnaTags.map((tag) => `<span class="chip">${tag}</span>`).join("")}</div>
               <p class="muted tiny" style="margin: 0">${reviewSnippet(focus)}</p>
-              <div class="small-meta"><span>${playtimeHours(focus)}h playtime</span><span>${valueHoursPerDollar(focus)}h/$</span></div>
+              <p class="muted tiny" style="margin: 8px 0 0">${clipText(focusReview.steam.summary, 160)}</p>
+              <p class="muted tiny" style="margin: 8px 0 0"><strong>GameCart Verdict:</strong> ${focusReview.culture.verdict}</p>
+              <div class="small-meta"><span>${playtimeHours(focus)}h playtime</span><span>${focusReview.culture.codename}</span></div>
               <div class="action-row">
                 <button type="button" class="action-btn" data-action="compare" data-id="${focus.id}">Compare</button>
                 <button type="button" class="action-btn" data-action="wishlist" data-id="${focus.id}">${state.wishlistIds.has(focus.id) ? "Wishlisted" : "Wishlist"}</button>
-                <a class="link-chip" href="${focusReview.metacritic.url}" target="_blank" rel="noopener noreferrer">Metacritic</a>
+                <a class="link-chip" href="${focusLinks.steamUrl}" target="_blank" rel="noopener noreferrer">Steam</a>
+                <a class="link-chip" href="${focusLinks.psUrl}" target="_blank" rel="noopener noreferrer">PS</a>
+                <a class="link-chip" href="${focusLinks.mcUrl}" target="_blank" rel="noopener noreferrer">Metacritic</a>
               </div>
             </div>
           </section>
 
           <section>
-            ${sectionHead("Deep Intel", "Maximum-signal snapshot for platform choice and timing.")}
+            ${sectionHead("Deep Intel", "Steam sentiment + MC critic/user context + GameCart culture axes.")}
             <div class="intel-grid">
               ${renderReviewIntel(focus)}
               ${renderPlayerIntel(focus)}
-              ${renderPriceIntel(focus)}
+              ${renderCultureIntel(focus)}
             </div>
           </section>
 
@@ -1855,6 +2146,7 @@
 
       function renderLibraryCard(game) {
         const review = gameReview(game);
+        const links = storeLinks(game, review);
         return `
           <article class="lib-card">
             <img class="lib-cover" src="${game.cover}" alt="${game.title}" loading="lazy" />
@@ -1862,14 +2154,18 @@
               <div class="chips"><span class="chip">${game.primaryPlatform}</span><span class="chip">${game.genre[0]}</span></div>
               <h4 class="title" style="font-size: 15px">${game.title}</h4>
               <p class="subtitle">${game.subtitle}</p>
-              <div class="small-meta"><span>${formatCurrency(game.currentPrice)}</span><span>${valueHoursPerDollar(game)}h/$</span></div>
+              <div class="small-meta"><span>${review.steam.sentiment}</span><span>MC ${formatCritic(review.metacritic.media)}</span></div>
+              <p class="muted tiny" style="margin: 6px 0 0">${clipText(review.culture.verdict, 120)}</p>
+              <div class="chips" style="margin-top: 8px">${renderAxisChips(review, 2)}</div>
               <p class="muted tiny" style="margin: 0">${reviewSnippet(game)}</p>
               <div class="lib-actions">
                 <button type="button" class="action-btn" data-action="tonight" data-id="${game.id}">Add to Tonight</button>
                 <button type="button" class="action-btn" data-action="compare" data-id="${game.id}">Compare</button>
                 <button type="button" class="action-btn" data-action="details" data-id="${game.id}">Details</button>
                 <button type="button" class="action-btn" data-action="wishlist" data-id="${game.id}">${state.wishlistIds.has(game.id) ? "Wishlisted" : "Wishlist"}</button>
-                <a class="link-chip" href="${review.metacritic.url}" target="_blank" rel="noopener noreferrer">MC</a>
+                <a class="link-chip" href="${links.steamUrl}" target="_blank" rel="noopener noreferrer">Steam</a>
+                <a class="link-chip" href="${links.psUrl}" target="_blank" rel="noopener noreferrer">PS</a>
+                <a class="link-chip" href="${links.mcUrl}" target="_blank" rel="noopener noreferrer">MC</a>
               </div>
             </div>
           </article>
@@ -1933,34 +2229,30 @@
 
         return `
           <section>
-            ${sectionHead("Wishlist", "Price tracking with lowest price badges and trend placeholders.")}
+            ${sectionHead("Wishlist", "High-signal review notes and quick links for your watchlist games.")}
             <div class="wishlist-list">
               ${games
                 .map((game) => {
                   const review = gameReview(game);
-                  const drop = dropPct(game.currentPrice, game.previousPrice);
-                  const atlBadge = game.currentPrice <= game.lowestPrice ? "Historical Low" : "Tracking";
+                  const links = storeLinks(game, review);
                   return `
                     <article class="surface-hi wishlist-row wishlist-item">
                       <img class="thumb" src="${game.cover}" alt="${game.title}" loading="lazy" />
                       <div>
-                        <div class="split"><h4>${game.title}</h4><div class="chips"><span class="chip ${drop > 0 ? "neon" : ""}">${drop > 0 ? `-${drop}%` : "Stable"}</span><span class="chip">${game.primaryPlatform}</span></div></div>
+                        <div class="split"><h4>${game.title}</h4><div class="chips"><span class="chip neon">${review.steam.sentiment}</span><span class="chip">${platformCoverage(game)}</span></div></div>
                         <p class="muted tiny" style="margin: 6px 0 0">${game.subtitle}</p>
-                        <div class="price-grid" style="margin-top: 9px">
-                          <div class="stat"><p class="label">Current</p><p class="val">${formatCurrency(game.currentPrice)}</p></div>
-                          <div class="stat"><p class="label">Lowest</p><p class="val" style="color: var(--neon)">${formatCurrency(game.lowestPrice)}</p></div>
-                          <div class="stat"><p class="label">Badge</p><p class="val">${atlBadge}</p></div>
-                        </div>
-                        <div style="margin-top: 10px">
-                          <p class="muted tiny" style="margin: 0 0 4px">Price Curve</p>
-                          <svg class="spark" viewBox="0 0 176 42"><path d="${sparkPath(game.priceHistory)}" fill="none" stroke="var(--neon)" stroke-width="2" stroke-linecap="round" /></svg>
-                        </div>
+                        <p class="muted tiny" style="margin: 8px 0 0"><strong>Critic Lens:</strong> ${clipText(review.metacritic.criticSummary, 170)}</p>
+                        <p class="muted tiny" style="margin: 6px 0 0"><strong>Player Lens:</strong> ${clipText(review.metacritic.userSummary, 170)}</p>
+                        <p class="muted tiny" style="margin: 6px 0 0"><strong>GameCart:</strong> ${review.culture.verdict}</p>
+                        <div class="chips" style="margin-top: 9px">${renderAxisChips(review, 3)}</div>
                         <p class="muted tiny" style="margin: 8px 0 0">${reviewSnippet(game)}</p>
                         <div class="action-row">
                           <button type="button" class="action-btn" data-action="compare" data-id="${game.id}">Compare</button>
                           <button type="button" class="action-btn" data-action="details" data-id="${game.id}">Details</button>
                           <button type="button" class="action-btn" data-action="wishlist" data-id="${game.id}">Remove</button>
-                          <a class="link-chip" href="${review.metacritic.url}" target="_blank" rel="noopener noreferrer">MC</a>
+                          <a class="link-chip" href="${links.steamUrl}" target="_blank" rel="noopener noreferrer">Steam</a>
+                          <a class="link-chip" href="${links.psUrl}" target="_blank" rel="noopener noreferrer">PS</a>
+                          <a class="link-chip" href="${links.mcUrl}" target="_blank" rel="noopener noreferrer">MC</a>
                         </div>
                       </div>
                     </article>
@@ -1975,11 +2267,11 @@
       function renderSettings() {
         return `
           <section>
-            ${sectionHead("Settings", "Control store region, currency, and alert behavior.")}
+            ${sectionHead("Settings", "Control region tags, currency labels, and review digest alerts.")}
             <div class="split-2">
               <article class="surface setting-card">
                 <h4>Store Defaults</h4>
-                <p class="muted tiny" style="margin: 6px 0 10px">Affects display currency and browsing region tags.</p>
+                <p class="muted tiny" style="margin: 6px 0 10px">Affects region tags and currency labels shown in the UI.</p>
                 <label class="muted tiny" for="regionSelect">Region</label>
                 <select id="regionSelect" class="select" style="margin-top: 4px">
                   ${["US", "JP", "GB"].map((r) => `<option value="${r}" ${state.region === r ? "selected" : ""}>${r}</option>`).join("")}
@@ -1996,8 +2288,8 @@
                 <p class="muted tiny" style="margin: 6px 0 10px">Theme is locked to premium dark mode with one neon accent.</p>
                 <label style="display: flex; align-items: center; justify-content: space-between; gap: 10px; border: 1px solid rgba(38,58,85,.86); border-radius: 11px; background: rgba(9,15,25,.75); padding: 10px">
                   <span>
-                    <strong style="display: block; font-size: 13px">Price drop alerts</strong>
-                    <span class="muted tiny">Notify on wishlist historical-low windows.</span>
+                    <strong style="display: block; font-size: 13px">Review digest alerts</strong>
+                    <span class="muted tiny">Notify when wishlist games gain strong critic/community consensus.</span>
                   </span>
                   <input id="alertsToggle" type="checkbox" ${state.alerts ? "checked" : ""} />
                 </label>
@@ -2034,18 +2326,25 @@
         compareList.innerHTML = games
           .map((game) => {
             const review = gameReview(game);
-            const drop = dropPct(game.currentPrice, game.previousPrice);
+            const links = storeLinks(game, review);
             return `
               <article class="drawer-item">
                 <div class="split"><h4 style="margin: 0; font-size: 14px">${game.title}</h4><button type="button" class="chip-btn" data-action="removeCompare" data-id="${game.id}">Remove</button></div>
-                <div class="chips"><span class="chip">${game.primaryPlatform}</span><span class="chip ${drop > 0 ? "neon" : ""}">${drop > 0 ? `-${drop}%` : "Stable"}</span></div>
+                <div class="chips"><span class="chip">${platformCoverage(game)}</span><span class="chip neon">${review.culture.codename}</span></div>
                 <div class="stats">
-                  <div class="stat"><p class="label">Current</p><p class="val">${formatCurrency(game.currentPrice)}</p></div>
-                  <div class="stat"><p class="label">Lowest</p><p class="val" style="color: var(--neon)">${formatCurrency(game.lowestPrice)}</p></div>
+                  <div class="stat"><p class="label">MC Media</p><p class="val">${formatCritic(review.metacritic.media)}</p></div>
+                  <div class="stat"><p class="label">MC User</p><p class="val" style="color: var(--neon)">${formatMcUser(review.metacritic.user)}</p></div>
                 </div>
-                <div class="small-meta"><span>${playtimeHours(game)}h playtime</span><span>${valueHoursPerDollar(game)}h/$</span></div>
+                <div class="small-meta"><span>${playtimeHours(game)}h playtime</span><span>${review.steam.sentiment}</span></div>
+                <p class="muted tiny" style="margin: 8px 0 0"><strong>Verdict:</strong> ${clipText(review.culture.verdict, 120)}</p>
+                <p class="muted tiny" style="margin: 6px 0 0"><strong>For:</strong> ${clipText(review.culture.recommendedFor, 110)}</p>
+                <p class="muted tiny" style="margin: 6px 0 0"><strong>Caution:</strong> ${clipText(review.culture.cautionFor, 110)}</p>
                 <p class="muted tiny" style="margin: 0">${reviewSnippet(game)}</p>
-                <div class="links-row"><a class="link-chip" href="${review.metacritic.url}" target="_blank" rel="noopener noreferrer">MC</a></div>
+                <div class="links-row">
+                  <a class="link-chip" href="${links.steamUrl}" target="_blank" rel="noopener noreferrer">Steam</a>
+                  <a class="link-chip" href="${links.psUrl}" target="_blank" rel="noopener noreferrer">PS</a>
+                  <a class="link-chip" href="${links.mcUrl}" target="_blank" rel="noopener noreferrer">MC</a>
+                </div>
               </article>
             `;
           })
