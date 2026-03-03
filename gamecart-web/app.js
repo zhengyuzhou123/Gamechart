@@ -331,6 +331,52 @@ const MILLION_SELLERS_2015_PLUS = [
   { id: "spacemarine2", name: "Warhammer 40,000: Space Marine 2", releaseDate: "2024-09-09", estimatedSalesM: 4, genres: ["Action", "Shooter"], developer: "Saber Interactive", publisher: "Focus Entertainment" }
 ];
 
+const REAL_COVER_BY_ID = {
+  witcher3: "https://cdn.cloudflare.steamstatic.com/steam/apps/292030/header.jpg",
+  fallout4: "https://cdn.cloudflare.steamstatic.com/steam/apps/377160/header.jpg",
+  metalgearsolidv: "https://cdn.cloudflare.steamstatic.com/steam/apps/287700/header.jpg",
+  gta5: "https://cdn.cloudflare.steamstatic.com/steam/apps/271590/header.jpg",
+  darksouls3: "https://cdn.cloudflare.steamstatic.com/steam/apps/374320/header.jpg",
+  doom2016: "https://cdn.cloudflare.steamstatic.com/steam/apps/379720/header.jpg",
+  battlefield1: "https://cdn.cloudflare.steamstatic.com/steam/apps/1238840/header.jpg",
+  overwatch: "https://cdn.cloudflare.steamstatic.com/steam/apps/2357570/header.jpg",
+  nierautomata: "https://cdn.cloudflare.steamstatic.com/steam/apps/524220/header.jpg",
+  residentevil7: "https://cdn.cloudflare.steamstatic.com/steam/apps/418370/header.jpg",
+  divinityoriginalsin2: "https://cdn.cloudflare.steamstatic.com/steam/apps/435150/header.jpg",
+  monsterhunterworld: "https://cdn.cloudflare.steamstatic.com/steam/apps/582010/header.jpg",
+  godofwar2018: "https://cdn.cloudflare.steamstatic.com/steam/apps/1593500/header.jpg",
+  spiderman2018: "https://cdn.cloudflare.steamstatic.com/steam/apps/1817070/header.jpg",
+  rdr2: "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/header.jpg",
+  assassinscreedodyssey: "https://cdn.cloudflare.steamstatic.com/steam/apps/812140/header.jpg",
+  farcry5: "https://cdn.cloudflare.steamstatic.com/steam/apps/552520/header.jpg",
+  sekiro: "https://cdn.cloudflare.steamstatic.com/steam/apps/814380/header.jpg",
+  residentevil2remake: "https://cdn.cloudflare.steamstatic.com/steam/apps/883710/header.jpg",
+  devilmaycry5: "https://cdn.cloudflare.steamstatic.com/steam/apps/601150/header.jpg",
+  starwarsjedifallenorder: "https://cdn.cloudflare.steamstatic.com/steam/apps/1172380/header.jpg",
+  deathstranding: "https://cdn.cloudflare.steamstatic.com/steam/apps/1190460/header.jpg",
+  control: "https://cdn.cloudflare.steamstatic.com/steam/apps/870780/header.jpg",
+  doometernal: "https://cdn.cloudflare.steamstatic.com/steam/apps/782330/header.jpg",
+  lastofuspart2: "https://cdn.cloudflare.steamstatic.com/steam/apps/2531310/header.jpg",
+  ghostoftsushima: "https://cdn.cloudflare.steamstatic.com/steam/apps/2215430/header.jpg",
+  ff7remake: "https://cdn.cloudflare.steamstatic.com/steam/apps/1462040/header.jpg",
+  assassinscreedvalhalla: "https://cdn.cloudflare.steamstatic.com/steam/apps/2208920/header.jpg",
+  residentevilvillage: "https://cdn.cloudflare.steamstatic.com/steam/apps/1196590/header.jpg",
+  ittakestwo: "https://cdn.cloudflare.steamstatic.com/steam/apps/1426210/header.jpg",
+  forzahorizon5: "https://cdn.cloudflare.steamstatic.com/steam/apps/1551360/header.jpg",
+  godofwarragnarok: "https://cdn.cloudflare.steamstatic.com/steam/apps/2322010/header.jpg",
+  horizonforbiddenwest: "https://cdn.cloudflare.steamstatic.com/steam/apps/2420110/header.jpg",
+  stray: "https://cdn.cloudflare.steamstatic.com/steam/apps/1332010/header.jpg",
+  hogwartslegacy: "https://cdn.cloudflare.steamstatic.com/steam/apps/990080/header.jpg",
+  baldursgate3: "https://cdn.cloudflare.steamstatic.com/steam/apps/1086940/header.jpg",
+  spiderman2: "https://image.api.playstation.com/vulcan/ap/rnd/202306/1219/1c7b75d8ed9271516546560d219ad0b22ee0a263b4537bd8.png",
+  diablo4: "https://cdn.cloudflare.steamstatic.com/steam/apps/2344520/header.jpg",
+  armoredcore6: "https://cdn.cloudflare.steamstatic.com/steam/apps/1888160/header.jpg",
+  helldivers2: "https://cdn.cloudflare.steamstatic.com/steam/apps/553850/header.jpg",
+  palworld: "https://cdn.cloudflare.steamstatic.com/steam/apps/1623730/header.jpg",
+  blackmythwukong: "https://cdn.cloudflare.steamstatic.com/steam/apps/2358720/header.jpg",
+  spacemarine2: "https://cdn.cloudflare.steamstatic.com/steam/apps/2183900/header.jpg"
+};
+
 const storage = {
   wishlist: "gamecart.wishlist",
   region: "gamecart.region",
@@ -1170,7 +1216,10 @@ function buildMillionSellerGame(entry, index) {
   const searchName = encodeURIComponent(entry.name);
   const steamURL = entry.steamStoreURL || `https://store.steampowered.com/search/?term=${searchName}`;
   const psURL = entry.playStationStoreURL || `https://store.playstation.com/en-us/search/${searchName}`;
-  const labels = buildLabeledArtwork(entry.name, releaseDate.slice(0, 4));
+  const realCover = REAL_COVER_BY_ID[entry.id];
+  const labels = realCover
+    ? { cover: realCover, hero: realCover }
+    : buildLabeledArtwork(entry.name, releaseDate.slice(0, 4));
   const millionPlusSales = Math.max(1, Number(entry.estimatedSalesM || 1));
   const metaBase = clampNumber(Math.round(78 + Math.min(16, millionPlusSales / 2)), 74, 97);
   const userBase10 = clampNumber(Number((6.9 + Math.min(2.6, millionPlusSales / 15)).toFixed(1)), 6.8, 9.6);
