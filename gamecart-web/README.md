@@ -6,6 +6,7 @@ Pure web version of the Steam + PlayStation game aggregation demo.
 
 - Steam-style dark UI with compact, information-dense layout
 - Game artwork for every title (cover in list + hero banner in detail)
+- Expanded catalog: 2015+ million-seller blockbusters (1M+ public sales milestones)
 - Home: grouped list (`Today's Deals` / `Popular`) + search + rating summary + deal quality tags
 - GameDetail: recommendation banner + wishlist heart + Steam/PS Offer shelf
 - GameDetail: ratings panel + player snapshot + price intelligence + platform feature comparison

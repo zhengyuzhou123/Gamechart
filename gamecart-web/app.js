@@ -284,6 +284,53 @@ const MOCK_GAMES = [
   }
 ];
 
+// Catalog extension: major releases since 2015 with public 1M+ sales milestones.
+const MILLION_SELLERS_2015_PLUS = [
+  { id: "witcher3", name: "The Witcher 3: Wild Hunt", releaseDate: "2015-05-19", estimatedSalesM: 50, genres: ["Action RPG", "Open World"], developer: "CD PROJEKT RED", publisher: "CD PROJEKT" },
+  { id: "fallout4", name: "Fallout 4", releaseDate: "2015-11-10", estimatedSalesM: 13, genres: ["RPG", "Open World"], developer: "Bethesda Game Studios", publisher: "Bethesda Softworks" },
+  { id: "metalgearsolidv", name: "Metal Gear Solid V: The Phantom Pain", releaseDate: "2015-09-01", estimatedSalesM: 7, genres: ["Stealth", "Action"], developer: "Kojima Productions", publisher: "Konami" },
+  { id: "gta5", name: "Grand Theft Auto V", releaseDate: "2015-04-14", estimatedSalesM: 200, genres: ["Action", "Open World"], developer: "Rockstar North", publisher: "Rockstar Games" },
+  { id: "darksouls3", name: "Dark Souls III", releaseDate: "2016-04-12", estimatedSalesM: 10, genres: ["Action RPG", "Soulslike"], developer: "FromSoftware", publisher: "Bandai Namco Entertainment" },
+  { id: "doom2016", name: "DOOM", releaseDate: "2016-05-13", estimatedSalesM: 4, genres: ["FPS", "Action"], developer: "id Software", publisher: "Bethesda Softworks" },
+  { id: "battlefield1", name: "Battlefield 1", releaseDate: "2016-10-21", estimatedSalesM: 15, genres: ["FPS", "Multiplayer"], developer: "DICE", publisher: "Electronic Arts", modes: ["Single-player", "Multiplayer"] },
+  { id: "overwatch", name: "Overwatch", releaseDate: "2016-05-24", estimatedSalesM: 50, genres: ["Hero Shooter", "Multiplayer"], developer: "Blizzard Entertainment", publisher: "Blizzard Entertainment", modes: ["Multiplayer"] },
+  { id: "nierautomata", name: "NieR:Automata", releaseDate: "2017-02-23", estimatedSalesM: 8, genres: ["Action RPG", "Sci-Fi"], developer: "PlatinumGames", publisher: "Square Enix" },
+  { id: "residentevil7", name: "Resident Evil 7 Biohazard", releaseDate: "2017-01-24", estimatedSalesM: 13, genres: ["Survival Horror"], developer: "Capcom", publisher: "Capcom" },
+  { id: "divinityoriginalsin2", name: "Divinity: Original Sin 2", releaseDate: "2017-09-14", estimatedSalesM: 7, genres: ["CRPG", "Turn-Based"], developer: "Larian Studios", publisher: "Larian Studios" },
+  { id: "monsterhunterworld", name: "Monster Hunter: World", releaseDate: "2018-01-26", estimatedSalesM: 25, genres: ["Action RPG", "Co-op"], developer: "Capcom", publisher: "Capcom", modes: ["Single-player", "Online Co-op"] },
+  { id: "godofwar2018", name: "God of War", releaseDate: "2018-04-20", estimatedSalesM: 23, genres: ["Action", "Adventure"], developer: "Santa Monica Studio", publisher: "Sony Interactive Entertainment" },
+  { id: "spiderman2018", name: "Marvel's Spider-Man", releaseDate: "2018-09-07", estimatedSalesM: 33, genres: ["Action", "Open World"], developer: "Insomniac Games", publisher: "Sony Interactive Entertainment" },
+  { id: "rdr2", name: "Red Dead Redemption 2", releaseDate: "2018-10-26", estimatedSalesM: 70, genres: ["Action", "Open World"], developer: "Rockstar Games", publisher: "Rockstar Games" },
+  { id: "assassinscreedodyssey", name: "Assassin's Creed Odyssey", releaseDate: "2018-10-05", estimatedSalesM: 10, genres: ["Action RPG", "Open World"], developer: "Ubisoft Quebec", publisher: "Ubisoft" },
+  { id: "farcry5", name: "Far Cry 5", releaseDate: "2018-03-27", estimatedSalesM: 10, genres: ["FPS", "Open World"], developer: "Ubisoft Montreal", publisher: "Ubisoft" },
+  { id: "sekiro", name: "Sekiro: Shadows Die Twice", releaseDate: "2019-03-22", estimatedSalesM: 10, genres: ["Action", "Soulslike"], developer: "FromSoftware", publisher: "Activision" },
+  { id: "residentevil2remake", name: "Resident Evil 2", releaseDate: "2019-01-25", estimatedSalesM: 15, genres: ["Survival Horror"], developer: "Capcom", publisher: "Capcom" },
+  { id: "devilmaycry5", name: "Devil May Cry 5", releaseDate: "2019-03-08", estimatedSalesM: 9, genres: ["Action", "Hack and Slash"], developer: "Capcom", publisher: "Capcom" },
+  { id: "starwarsjedifallenorder", name: "Star Wars Jedi: Fallen Order", releaseDate: "2019-11-15", estimatedSalesM: 20, genres: ["Action Adventure"], developer: "Respawn Entertainment", publisher: "Electronic Arts" },
+  { id: "deathstranding", name: "Death Stranding", releaseDate: "2019-11-08", estimatedSalesM: 5, genres: ["Action", "Adventure"], developer: "Kojima Productions", publisher: "505 Games" },
+  { id: "control", name: "Control", releaseDate: "2019-08-27", estimatedSalesM: 4, genres: ["Action", "Sci-Fi"], developer: "Remedy Entertainment", publisher: "505 Games" },
+  { id: "doometernal", name: "DOOM Eternal", releaseDate: "2020-03-20", estimatedSalesM: 3, genres: ["FPS", "Action"], developer: "id Software", publisher: "Bethesda Softworks" },
+  { id: "lastofuspart2", name: "The Last of Us Part II", releaseDate: "2020-06-19", estimatedSalesM: 10, genres: ["Action", "Narrative"], developer: "Naughty Dog", publisher: "Sony Interactive Entertainment" },
+  { id: "ghostoftsushima", name: "Ghost of Tsushima", releaseDate: "2020-07-17", estimatedSalesM: 13, genres: ["Action", "Open World"], developer: "Sucker Punch Productions", publisher: "Sony Interactive Entertainment" },
+  { id: "ff7remake", name: "Final Fantasy VII Remake", releaseDate: "2020-04-10", estimatedSalesM: 7, genres: ["JRPG", "Action RPG"], developer: "Square Enix", publisher: "Square Enix" },
+  { id: "assassinscreedvalhalla", name: "Assassin's Creed Valhalla", releaseDate: "2020-11-10", estimatedSalesM: 12, genres: ["Action RPG", "Open World"], developer: "Ubisoft Montreal", publisher: "Ubisoft" },
+  { id: "residentevilvillage", name: "Resident Evil Village", releaseDate: "2021-05-07", estimatedSalesM: 10, genres: ["Survival Horror"], developer: "Capcom", publisher: "Capcom" },
+  { id: "ittakestwo", name: "It Takes Two", releaseDate: "2021-03-26", estimatedSalesM: 20, genres: ["Co-op", "Adventure"], developer: "Hazelight Studios", publisher: "Electronic Arts", modes: ["Online Co-op", "Local Co-op"] },
+  { id: "forzahorizon5", name: "Forza Horizon 5", releaseDate: "2021-11-09", estimatedSalesM: 10, genres: ["Racing", "Open World"], developer: "Playground Games", publisher: "Xbox Game Studios", modes: ["Single-player", "Multiplayer"] },
+  { id: "godofwarragnarok", name: "God of War Ragnarök", releaseDate: "2022-11-09", estimatedSalesM: 15, genres: ["Action", "Adventure"], developer: "Santa Monica Studio", publisher: "Sony Interactive Entertainment" },
+  { id: "horizonforbiddenwest", name: "Horizon Forbidden West", releaseDate: "2022-02-18", estimatedSalesM: 9, genres: ["Action RPG", "Open World"], developer: "Guerrilla Games", publisher: "Sony Interactive Entertainment" },
+  { id: "stray", name: "Stray", releaseDate: "2022-07-19", estimatedSalesM: 2, genres: ["Adventure", "Puzzle"], developer: "BlueTwelve Studio", publisher: "Annapurna Interactive" },
+  { id: "hogwartslegacy", name: "Hogwarts Legacy", releaseDate: "2023-02-10", estimatedSalesM: 24, genres: ["Action RPG", "Open World"], developer: "Avalanche Software", publisher: "Warner Bros. Games" },
+  { id: "baldursgate3", name: "Baldur's Gate 3", releaseDate: "2023-08-03", estimatedSalesM: 15, genres: ["CRPG", "Turn-Based"], developer: "Larian Studios", publisher: "Larian Studios" },
+  { id: "spiderman2", name: "Marvel's Spider-Man 2", releaseDate: "2023-10-20", estimatedSalesM: 11, genres: ["Action", "Open World"], developer: "Insomniac Games", publisher: "Sony Interactive Entertainment" },
+  { id: "diablo4", name: "Diablo IV", releaseDate: "2023-06-05", estimatedSalesM: 12, genres: ["Action RPG", "Loot"], developer: "Blizzard Entertainment", publisher: "Blizzard Entertainment", modes: ["Single-player", "Online"] },
+  { id: "armoredcore6", name: "Armored Core VI: Fires of Rubicon", releaseDate: "2023-08-25", estimatedSalesM: 3, genres: ["Action", "Mecha"], developer: "FromSoftware", publisher: "Bandai Namco Entertainment" },
+  { id: "helldivers2", name: "Helldivers 2", releaseDate: "2024-02-08", estimatedSalesM: 12, genres: ["Co-op Shooter", "Live Service"], developer: "Arrowhead Game Studios", publisher: "Sony Interactive Entertainment", modes: ["Online Co-op"] },
+  { id: "palworld", name: "Palworld", releaseDate: "2024-01-19", estimatedSalesM: 25, genres: ["Survival", "Monster Collection"], developer: "Pocketpair", publisher: "Pocketpair", modes: ["Single-player", "Online Co-op"] },
+  { id: "blackmythwukong", name: "Black Myth: Wukong", releaseDate: "2024-08-20", estimatedSalesM: 20, genres: ["Action RPG"], developer: "Game Science", publisher: "Game Science" },
+  { id: "spacemarine2", name: "Warhammer 40,000: Space Marine 2", releaseDate: "2024-09-09", estimatedSalesM: 4, genres: ["Action", "Shooter"], developer: "Saber Interactive", publisher: "Focus Entertainment" }
+];
+
 const storage = {
   wishlist: "gamecart.wishlist",
   region: "gamecart.region",
@@ -336,6 +383,7 @@ const FALLBACK_IMAGE =
       <text x='30' y='118' fill='#d4e6ff' font-size='28' font-family='Arial'>GameCart</text>
     </svg>`
   );
+mergeMillionSellerCatalog();
 
 const appRoot = document.querySelector("#app");
 const tabButtons = Array.from(document.querySelectorAll(".tab-btn"));
@@ -478,6 +526,7 @@ function renderTabs(currentTab) {
 }
 
 function renderHome() {
+  const catalogStats = getCatalogStats();
   appRoot.innerHTML = `
     <section class="stack">
       <input
@@ -487,6 +536,7 @@ function renderHome() {
         value="${escapeHTML(state.search)}"
         placeholder="Search games"
       />
+      <p class="note">Catalog: ${catalogStats.total} games · ${catalogStats.millionPlusSince2015} titles with 1M+ sales milestones (2015+).</p>
       <div id="home-sections">
         ${homeSectionsHTML()}
       </div>
@@ -513,12 +563,13 @@ function homeSectionsHTML() {
   const filtered = q
     ? MOCK_GAMES.filter((g) => g.name.toLowerCase().includes(q))
     : MOCK_GAMES;
+  const sorted = [...filtered].sort((a, b) => releaseTimestamp(b) - releaseTimestamp(a));
 
-  const deals = filtered.filter((g) => g.groups.includes("todaysDeals"));
-  const popular = filtered.filter((g) => g.groups.includes("popular"));
+  const deals = sorted.filter((g) => g.groups.includes("todaysDeals"));
+  const popular = sorted.filter((g) => g.groups.includes("popular"));
 
   if (q) {
-    return renderGameSection("Search Results", filtered);
+    return renderGameSection("Search Results", sorted);
   }
 
   return `${renderGameSection("Today's Deals", deals)}${renderGameSection("Popular", popular)}`;
@@ -554,11 +605,12 @@ function renderGameRow(game) {
   const dealInsight = getDealInsight(game, offers);
   const valueLabel = buildValueLabel(game, offers);
   const releaseLabel = formatDate(guide.releaseDate);
+  const salesLabel = formatSales(guide.estimatedSalesM);
   const bestLabel = best
     ? `From ${formatCurrentPrice(best)} on ${platformLabel(best.platform)}`
     : "No offers";
   const ratingLabel = `评分：Steam M${formatScoreValue(steam?.media)} / U${formatScoreValue(steam?.player)} · PS M${formatScoreValue(ps?.media)} / U${formatScoreValue(ps?.player)} · MC M${formatScoreValue(mc?.media)} / U${formatScoreValue(mc?.player)}`;
-  const quickFactsLabel = `玩法：${formatArray(guide.genres, 2)} · 模式：${formatArray(guide.modes, 1)} · 主线约 ${formatHours(guide.playtimeHours?.main)}`;
+  const quickFactsLabel = `玩法：${formatArray(guide.genres, 2)} · 模式：${formatArray(guide.modes, 1)} · 主线约 ${formatHours(guide.playtimeHours?.main)} · 销量 ${salesLabel}`;
 
   return `
     <li class="game-row steam-row">
@@ -576,6 +628,7 @@ function renderGameRow(game) {
         <p class="row-meta">${escapeHTML(quickFactsLabel)}</p>
         <div class="row-pills">
           <span class="info-pill ${dealInsight.toneClass}">${escapeHTML(dealInsight.label)}</span>
+          <span class="info-pill neutral">Sales ${escapeHTML(salesLabel)}</span>
           ${valueLabel ? `<span class="info-pill neutral">${escapeHTML(valueLabel)}</span>` : ""}
         </div>
       </div>
@@ -592,6 +645,7 @@ function renderGameHero(game, wishlisted, offers) {
   const guide = game.playerGuide || {};
   const dealInsight = getDealInsight(game, offers);
   const valueLabel = buildValueLabel(game, offers);
+  const salesLabel = formatSales(guide.estimatedSalesM);
 
   return `
     <section class="hero-banner">
@@ -613,6 +667,7 @@ function renderGameHero(game, wishlisted, offers) {
           <span class="info-pill neutral">Release ${escapeHTML(formatDate(guide.releaseDate))}</span>
           <span class="info-pill neutral">${escapeHTML(formatArray(guide.genres, 2))}</span>
           <span class="info-pill neutral">Main ${escapeHTML(formatHours(guide.playtimeHours?.main))}</span>
+          <span class="info-pill neutral">Sales ${escapeHTML(salesLabel)}</span>
           <span class="info-pill ${dealInsight.toneClass}">${escapeHTML(dealInsight.label)}</span>
           ${valueLabel ? `<span class="info-pill neutral">${escapeHTML(valueLabel)}</span>` : ""}
         </div>
@@ -755,6 +810,10 @@ function renderPlayerSnapshot(game, offers) {
         <article class="snapshot-card">
           <span class="snapshot-key">Studio</span>
           <strong class="snapshot-value">${escapeHTML(guide.developer || "--")}</strong>
+        </article>
+        <article class="snapshot-card">
+          <span class="snapshot-key">Sales</span>
+          <strong class="snapshot-value">${escapeHTML(formatSales(guide.estimatedSalesM))}</strong>
         </article>
       </div>
       <p class="note">Publisher: ${escapeHTML(guide.publisher || "--")} · 交易建议：${escapeHTML(getDealInsight(game, offers).label)}${buildValueLabel(game, offers) ? ` · ${escapeHTML(buildValueLabel(game, offers))}` : ""}</p>
@@ -1082,6 +1141,218 @@ function formatOriginalPrice(offer) {
 
   const converted = offer.originalPriceUSD * USD_TO_CURRENCY[state.currency];
   return formatMoney(converted, state.currency);
+}
+
+function mergeMillionSellerCatalog() {
+  const existing = new Set(MOCK_GAMES.map((game) => game.id));
+
+  MILLION_SELLERS_2015_PLUS.forEach((entry, index) => {
+    if (existing.has(entry.id)) {
+      return;
+    }
+
+    MOCK_GAMES.push(buildMillionSellerGame(entry, index));
+    existing.add(entry.id);
+  });
+}
+
+function buildMillionSellerGame(entry, index) {
+  const basePrice = typeof entry.basePriceUSD === "number" ? entry.basePriceUSD : 59.99;
+  const steamCurrent = roundUSD(typeof entry.steamCurrentUSD === "number" ? entry.steamCurrentUSD : Math.max(14.99, basePrice * 0.68));
+  const steamOriginal = roundUSD(typeof entry.steamOriginalUSD === "number" ? entry.steamOriginalUSD : Math.max(basePrice, steamCurrent + 15));
+  const psCurrent = roundUSD(typeof entry.psCurrentUSD === "number" ? entry.psCurrentUSD : Math.max(19.99, steamCurrent + 5));
+  const psOriginal = roundUSD(typeof entry.psOriginalUSD === "number" ? entry.psOriginalUSD : Math.max(psCurrent + 10, steamOriginal + 5));
+  const releaseDate = entry.releaseDate || "2015-01-01";
+  const releaseTime = releaseTimestamp({ playerGuide: { releaseDate } });
+  const lowSteam = roundUSD(Math.max(9.99, steamCurrent * 0.72));
+  const lowPS = roundUSD(Math.max(9.99, psCurrent * 0.75));
+  const saleWindowStart = Number.isFinite(releaseTime) ? new Date(releaseTime) : new Date("2015-01-01");
+  const searchName = encodeURIComponent(entry.name);
+  const steamURL = entry.steamStoreURL || `https://store.steampowered.com/search/?term=${searchName}`;
+  const psURL = entry.playStationStoreURL || `https://store.playstation.com/en-us/search/${searchName}`;
+  const labels = buildLabeledArtwork(entry.name, releaseDate.slice(0, 4));
+  const millionPlusSales = Math.max(1, Number(entry.estimatedSalesM || 1));
+  const metaBase = clampNumber(Math.round(78 + Math.min(16, millionPlusSales / 2)), 74, 97);
+  const userBase10 = clampNumber(Number((6.9 + Math.min(2.6, millionPlusSales / 15)).toFixed(1)), 6.8, 9.6);
+  const userBase5 = clampNumber(Number((3.6 + Math.min(1.2, millionPlusSales / 28)).toFixed(1)), 3.5, 4.9);
+  const mainHours = Math.max(10, Math.round(16 + millionPlusSales * 1.4));
+  const completionistHours = Math.max(mainHours + 12, Math.round(mainHours * 2.3));
+  const groups = index % 4 === 0 ? ["todaysDeals"] : ["popular"];
+
+  return {
+    id: entry.id,
+    name: entry.name,
+    shortDescription: `${entry.name} · 2015+ 百万销量大作（公开销量里程碑）`,
+    groups,
+    artwork: {
+      cover: labels.cover,
+      hero: labels.hero
+    },
+    ratings: {
+      steam: {
+        media: { score: clampNumber(metaBase - 1, 70, 97), scale: 100 },
+        player: { score: userBase10, scale: 10 }
+      },
+      playStation: {
+        media: { score: clampNumber(metaBase, 70, 97), scale: 100 },
+        player: { score: userBase5, scale: 5 }
+      },
+      metacritic: {
+        media: { score: clampNumber(metaBase, 70, 97), scale: 100 },
+        player: { score: clampNumber(Number((userBase10 - 0.4).toFixed(1)), 6.0, 9.5), scale: 10 }
+      }
+    },
+    playerGuide: {
+      releaseDate,
+      estimatedSalesM: millionPlusSales,
+      genres: Array.isArray(entry.genres) && entry.genres.length ? entry.genres : ["Action", "Adventure"],
+      modes: Array.isArray(entry.modes) && entry.modes.length ? entry.modes : ["Single-player"],
+      playtimeHours: {
+        main: typeof entry.mainHours === "number" ? entry.mainHours : mainHours,
+        completionist: typeof entry.completionistHours === "number" ? entry.completionistHours : completionistHours
+      },
+      difficulty: entry.difficulty || "Medium",
+      developer: entry.developer || "--",
+      publisher: entry.publisher || "--",
+      contentAdvisory: entry.contentAdvisory || ["Violence"],
+      communityPulse: {
+        summary: "销量与社区活跃度长期稳定，适合追求成熟内容和大规模讨论生态的玩家。",
+        steamSentiment: "Mostly Positive",
+        playerFocus: "适合希望获得稳定更新、完善攻略和活跃社群支持的玩家。",
+        recentIssues: [
+          "跨平台性能与补丁节奏会随版本周期波动。",
+          "大促期间价格变化快，建议先看历史低价。"
+        ]
+      },
+      platformFeatures: {
+        steam: {
+          performance: "PC scalability depends on hardware",
+          controller: "Controller supported",
+          cloudSave: true,
+          mods: true,
+          extras: ["Community guides", "Workshop/mod ecosystem (title dependent)"]
+        },
+        playStation: {
+          performance: "Quality / Performance options (title dependent)",
+          controller: "DualSense support (title dependent)",
+          cloudSave: true,
+          mods: false,
+          extras: ["Trophies", "PS ecosystem integration"]
+        }
+      },
+      priceIntel: {
+        historicalLowUSD: { steam: lowSteam, playStation: lowPS },
+        historicalLowDate: {
+          steam: formatISODate(new Date(saleWindowStart.getTime() + 1000 * 60 * 60 * 24 * 30)),
+          playStation: formatISODate(new Date(saleWindowStart.getTime() + 1000 * 60 * 60 * 24 * 45))
+        },
+        saleEnds: {
+          steam: formatISODate(new Date(Date.now() + 1000 * 60 * 60 * 24 * 10)),
+          playStation: formatISODate(new Date(Date.now() + 1000 * 60 * 60 * 24 * 12))
+        },
+        likelySaleWindow: "Seasonal sales and publisher events usually create the best pricing windows."
+      }
+    },
+    offers: [
+      {
+        id: `${entry.id}-steam`,
+        platform: "steam",
+        currentPriceUSD: steamCurrent,
+        originalPriceUSD: steamOriginal,
+        version: "Standard",
+        psPlusIncluded: false,
+        buyURL: steamURL,
+        steamAppID: typeof entry.steamAppID === "number" ? entry.steamAppID : null
+      },
+      {
+        id: `${entry.id}-ps`,
+        platform: "playStation",
+        currentPriceUSD: psCurrent,
+        originalPriceUSD: psOriginal,
+        version: "PS5 Standard",
+        psPlusIncluded: false,
+        buyURL: psURL,
+        steamAppID: null
+      }
+    ]
+  };
+}
+
+function buildLabeledArtwork(title, yearLabel) {
+  const safeTitle = escapeSVGText(title);
+  const safeYear = escapeSVGText(yearLabel || "");
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 460 215'>
+    <defs>
+      <linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>
+        <stop offset='0%' stop-color='#1b2f48'/>
+        <stop offset='100%' stop-color='#0a131f'/>
+      </linearGradient>
+    </defs>
+    <rect width='460' height='215' fill='url(#g)'/>
+    <circle cx='400' cy='40' r='54' fill='rgba(103,193,245,0.24)'/>
+    <rect x='18' y='152' width='220' height='36' rx='9' fill='rgba(7,18,30,0.68)'/>
+    <text x='32' y='176' fill='#d5e8fb' font-size='13' font-family='Arial'>Million Seller 2015+</text>
+    <text x='24' y='66' fill='#f0f7ff' font-size='26' font-family='Arial' font-weight='700'>${safeTitle}</text>
+    <text x='24' y='96' fill='#9dc2e2' font-size='16' font-family='Arial'>${safeYear}</text>
+  </svg>`;
+  const encoded = `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
+  return { cover: encoded, hero: encoded };
+}
+
+function escapeSVGText(value) {
+  return String(value || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/\"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
+
+function roundUSD(value) {
+  return Math.round(Number(value) * 100) / 100;
+}
+
+function clampNumber(value, min, max) {
+  return Math.max(min, Math.min(max, Number(value)));
+}
+
+function formatISODate(dateObj) {
+  const year = dateObj.getFullYear();
+  const month = String(dateObj.getMonth() + 1).padStart(2, "0");
+  const day = String(dateObj.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+function releaseTimestamp(game) {
+  const releaseDate = game?.playerGuide?.releaseDate;
+  const value = releaseDate ? new Date(releaseDate).getTime() : NaN;
+  return Number.isFinite(value) ? value : 0;
+}
+
+function getCatalogStats() {
+  const thresholdTime = new Date("2015-01-01").getTime();
+  const millionPlusSince2015 = MOCK_GAMES.filter((game) => {
+    const release = releaseTimestamp(game);
+    const sales = Number(game?.playerGuide?.estimatedSalesM || 0);
+    return release >= thresholdTime && sales >= 1;
+  }).length;
+
+  return {
+    total: MOCK_GAMES.length,
+    millionPlusSince2015
+  };
+}
+
+function formatSales(value) {
+  if (typeof value !== "number" || Number.isNaN(value) || value <= 0) {
+    return "1M+";
+  }
+
+  if (value >= 10) {
+    return `${Math.round(value)}M+`;
+  }
+
+  return `${value.toFixed(1)}M+`;
 }
 
 function getGameImage(game, type = "cover") {
