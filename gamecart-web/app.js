@@ -1182,7 +1182,7 @@ function buildMillionSellerGame(entry, index) {
   return {
     id: entry.id,
     name: entry.name,
-    shortDescription: `${entry.name} · 2015+ 百万销量大作（公开销量里程碑）`,
+    shortDescription: buildGeneratedDescription(entry, millionPlusSales),
     groups,
     artwork: {
       cover: labels.cover,
@@ -1281,22 +1281,44 @@ function buildMillionSellerGame(entry, index) {
 function buildLabeledArtwork(title, yearLabel) {
   const safeTitle = escapeSVGText(title);
   const safeYear = escapeSVGText(yearLabel || "");
+  const seed = hashSeed(`${title}-${yearLabel}`);
+  const hue1 = seed % 360;
+  const hue2 = (hue1 + 42) % 360;
+  const hue3 = (hue1 + 210) % 360;
   const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 460 215'>
     <defs>
       <linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>
-        <stop offset='0%' stop-color='#1b2f48'/>
-        <stop offset='100%' stop-color='#0a131f'/>
+        <stop offset='0%' stop-color='hsl(${hue1} 58% 26%)'/>
+        <stop offset='100%' stop-color='hsl(${hue2} 64% 11%)'/>
       </linearGradient>
     </defs>
     <rect width='460' height='215' fill='url(#g)'/>
-    <circle cx='400' cy='40' r='54' fill='rgba(103,193,245,0.24)'/>
+    <circle cx='400' cy='40' r='54' fill='hsla(${hue3} 80% 72% / 0.24)'/>
+    <circle cx='78' cy='172' r='42' fill='hsla(${hue2} 78% 62% / 0.12)'/>
     <rect x='18' y='152' width='220' height='36' rx='9' fill='rgba(7,18,30,0.68)'/>
     <text x='32' y='176' fill='#d5e8fb' font-size='13' font-family='Arial'>Million Seller 2015+</text>
-    <text x='24' y='66' fill='#f0f7ff' font-size='26' font-family='Arial' font-weight='700'>${safeTitle}</text>
-    <text x='24' y='96' fill='#9dc2e2' font-size='16' font-family='Arial'>${safeYear}</text>
+    <text x='24' y='64' fill='#f0f7ff' font-size='24' font-family='Arial' font-weight='700'>${safeTitle}</text>
+    <text x='24' y='92' fill='#b4d2ed' font-size='16' font-family='Arial'>${safeYear}</text>
   </svg>`;
   const encoded = `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
   return { cover: encoded, hero: encoded };
+}
+
+function buildGeneratedDescription(entry, salesM) {
+  const releaseYear = String(entry.releaseDate || "").slice(0, 4) || "2015+";
+  const genres = Array.isArray(entry.genres) && entry.genres.length
+    ? entry.genres.slice(0, 2).join(" / ")
+    : "Action / Adventure";
+  return `${releaseYear} · ${genres} · Sales ${formatSales(salesM)}`;
+}
+
+function hashSeed(value) {
+  let hash = 0;
+  const text = String(value || "");
+  for (let i = 0; i < text.length; i += 1) {
+    hash = (hash * 31 + text.charCodeAt(i)) % 100000;
+  }
+  return Math.abs(hash);
 }
 
 function escapeSVGText(value) {
